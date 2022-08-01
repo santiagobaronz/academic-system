@@ -1,0 +1,74 @@
+{
+  "_from": "material-icons",
+  "_id": "material-icons@1.11.8",
+  "_inBundle": false,
+  "_integrity": "sha512-PDvpRAtH7JTKJIuJgyry2MsfxxPfTj0RMBUNHkE+wzk+OBXuyltlAYqXZALtjHFqcOh7kNDe6guFLJ1r33VUbA==",
+  "_location": "/material-icons",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "material-icons",
+    "name": "material-icons",
+    "escapedName": "material-icons",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/material-icons/-/material-icons-1.11.8.tgz",
+  "_shasum": "a462e06a0380150241bde783d37800fe873cd7c7",
+  "_spec": "material-icons",
+  "_where": "C:\\Users\\santi\\Documents\\Proyectos JavaScript\\academic-system",
+  "browser": "iconfont/material-icons.css",
+  "bugs": {
+    "url": "https://github.com/marella/material-icons/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Latest icon fonts and CSS for self-hosting material design icons.",
+  "devDependencies": {
+    "@material-design-icons/scripts": "0.2.4",
+    "opentype.js": "1.3.3",
+    "sass": "1.35.1"
+  },
+  "files": [
+    "_data/versions.json",
+    "css/*.{css,scss}",
+    "iconfont/*.{css,scss,woff,woff2}"
+  ],
+  "homepage": "https://marella.github.io/material-icons/demo/",
+  "keywords": [
+    "material-icons",
+    "material-design-icons",
+    "material-design",
+    "material",
+    "icons",
+    "iconfont",
+    "font",
+    "css",
+    "sass"
+  ],
+  "license": "Apache-2.0",
+  "name": "material-icons",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marella/material-icons.git"
+  },
+  "sass": "iconfont/material-icons.scss",
+  "scripts": {
+    "build": "npm run build:codepoints && npm run build:css && npm run build:css:min",
+    "build:codepoints": "node scripts/codepoints.js",
+    "build:css": "sass --no-source-map --no-error-css css iconfont",
+    "build:css:min": "sass --style compressed --no-source-map --no-error-css css/material-icons.scss:css/material-icons.min.css",
+    "check": "npm run download:metadata -- --status --dry-run",
+    "download": "npm run download:font && npm run download:metadata",
+    "download:font": "npx @material-design-icons/scripts download font --to iconfont",
+    "download:metadata": "npx @material-design-icons/scripts download metadata",
+    "update": "npm run download && npm run build"
+  },
+  "version": "1.11.8"
+}

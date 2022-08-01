@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+@import '../../node_modules/material-icons/iconfont/material-icons.css';
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	text-decoration: none;
+	list-style: none;
+    font-family: 'Rubik', sans-serif;
+}
+
+:root{
+    --blue: #5E50F9;
+    --indigo: #6610f2;
+    --purple: #6a008a;
+    --pink: #E91E63;
+    --red: #f96868;
+    --orange: #f2a654;
+    --yellow: #f6e84e;
+    --green: #46c35f;
+    --teal: #58d8a3;
+    --cyan: #57c7d4;
+    --white: #ffffff;
+    --gray: #6c757d;
+    --gray-dark: #0f1531;
+    --blue: #5E50F9;
+    --indigo: #6610f2;
+    --purple: #6a008a;
+    --pink: #E91E63;
+    --red: #f96868;
+    --orange: #f2a654;
+    --yellow: #f6e84e;
+    --green: #46c35f;
+    --teal: #58d8a3;
+    --cyan: #57c7d4;
+    --white: #ffffff;
+    --gray: #434a54;
+    --gray-light: #aab2bd;
+    --gray-lighter: #e8eff4;
+    --gray-lightest: #e6e9ed;
+    --black: #000000;
+    --primary: #4B49AC;
+    --secondary: #a3a4a5;
+    --success: #57B657;
+    --info: #248AFD;
+    --warning: #FFC100;
+    --danger: #FF4747;
+    --light: #f8f9fa;
+    --dark: #282f3a;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.main-nav{
+    width: 100%;
+    height: 60px;
+    background-color: var(--white);
+    box-shadow: 0px 5px 21px -5px #cdd1e1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1.5fr;
+}
+
+.navbar-brand{
+    width: 280px;
+}
+
+.navbar-brand{
+    text-align: center;
+    line-height: 60px;
+    font-size: 13px;
+}
+
+.navbar-brand h1{
+    font-weight: 500;
+}
+
+.navbar-info{
+    padding: 10px 0px 10px 40px;
+}
+
+.section-form{
+    position: relative;
+}
+
+.icon-search{
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: var(--gray-light);
+}
+
+.navbar-info input{
+    width: 600px;
+    height: 35px;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+.navbar-date{
+    float: right;
+    line-height: 40px;
+    color: var(--gray-light);
+}
+
+
+.main-container{
+    min-height: calc(100vh - 60px);
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar{
+    width: 280px;
+    font-family: "Nunito", sans-serif;
+    background-color: var(--white);
+}
+
+.sidebar .nav:not(.sub-menu){
+    margin-top: 1.45rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.sidebar .nav{
+    overflow: hidden;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.nav{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;   
+}
+
+.active{
+    background-color: #4B49AC;
+    color: var(--white) !important;
+}
+
+.nav-item:hover{
+    background-color: #4B49AC;
+    color: var(--white) !important;
+    transition: 0.3s all;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0.8125rem 1.037rem 0.8125rem 1rem;
+    color: #6C7383;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 3px;
+    font-weight: 400;
+    transition: 0.3s all;
+    font-size: 15px;
+}
+
+.icon-menu{
+    margin-right: 15px;
+}
+
+.arrow-menu{
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Contenido principal */
+
+.main-panel{
+    width: calc(100% - 650px);
+    display: flex;
+    flex-direction: column;
+    height: 100%
+}
+
+.main-content{
+    background-color: #f5f7ff;
+    width: 100%;
+    padding: 40px;
+}
+
+.dashboard-message{
+    padding: 50px 80px;
+    background-color: #4b49ac29;
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.dashboard-message h2{
+    color:#4B49AC;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.dashboard-message p{
+    font-size: 17px;
+    color: var(--gray);
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+
+.dashboard-message img{
+    position: absolute;
+    width: 350px;
+    right: 50px;
+    top: -20px;
+}
+
+.dashboard-last-courses h2{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 0px;
+}
+
+.course-card{
+    background-color: #4d4cac;
+    height: 120px;
+    border-radius: 20px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+    cursor: pointer;
+}
+
+.course-card > span{
+    background-color: #5a5ab2;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 25px;
+}
+
+.course-info-card{
+    margin-top: 10px;
+    position: relative;
+}
+
+.course-info-card > span{
+    display: block;
+}
+
+.course-info-card > span:nth-child(1){
+    color: var(--gray-light);
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.course-info-card > span:nth-child(2){
+    color: #fff;
+    font-weight: 500;
+}
+
+.icon-card{
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+
+/* Menu de widgets */
+
+.widgets-menu{
+    width: 370px;
+}

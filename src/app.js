@@ -43,9 +43,11 @@ app.post('/new', (req,res) => {
 
     const student = {
         id: json.estudiantes.length + 1,
+        code: `2022-${id}`,
         name: nombre,
+        lastName: lastName,
         age: parseInt(edad),
-        enroll: (req.body.enroll === 'true')
+        courses: []
     };
 
     json.estudiantes.push(student);

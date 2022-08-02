@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic System</title>
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     
 </head>
 <body>
@@ -60,7 +60,7 @@
 
                     <!-- Aquí empieza el verdadero contenido -->
 
-                    <div class="dashboard-page">
+                    <div class="dashboard-page" style="display:none ;">
 
                         <div class="dashboard-message">
                             <h2>Bienvenido de vuelta!</h2>
@@ -105,9 +105,103 @@
 
 
                     </div>
+
+                    <div class="students-page">
+
+                        <h2>Estudiantes</h2>
+                        <div class="buttonCreateStudent">
+                            <i class="material-icons-round icon-widget" style="--color: #fff;">person_add_alt_1</i>
+                            <span class="createStudent">Crear estudiante</span>
+                        </div>
+
+
+                        <div class="students-results" style="display:none ;">
+                            <form action="">
+                                <div class="input-section">
+                                    <label class="material-icons-round">search</label>
+                                    <input type="text" placeholder="Busca un estudiante aquí">
+                                </div>
+    
+                                <button>Buscar</button>
+    
+                                <select name="" id="" class="option-selector">
+                                    <option value="">Selecciona una opción</option>
+                                </select>
+                            </form>
+                        </div>
+
+                        <div class="student-form">
+                            <div class="students-metrics">
+                                <div class="students-counter">
+                                    <h3>Estas creando un nuevo estudiante</h3>
+                                    <p>Completa el formulario para crear un nuevo estudiante.</p>
+                                </div>
+                            </div>
+                            <div class="form-student-card">
+                                <form action="">
+                                    <h3>Crear estudiante</h3>
+                                    <p>A continuación, rellene los campos con la información solicitada</p>
+
+                                    <div class="inputs-students-form">
+                                        <label for="">Nombre</label>
+                                        <input type="text" placeholder="Nombres del estudiante">
+
+                                        <label for="">Apellidos</label>
+                                        <input type="text" placeholder="Apellidos del estudiante">
+
+                                        <label for="">Edad</label>
+                                        <input type="text" placeholder="Edad del estudiante">
+
+                                        <label for="">Correo electrónico</label>
+                                        <input type="text" placeholder="Correo electrónico del estudiante">
+
+                                        <label for="">Numero de teléfono</label>
+                                        <input type="text" placeholder="Teléfono del estudiante">
+
+                                        <button type="submit">Crear estudiante</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
                 </div>
             </div>
             <div class="widgets-menu">
+                <div class="profile-card">
+                    <h3>AS</h3>
+                    <p>Academic System</p>
+                    <span>Administrador</span>
+                </div>
+                <div class="widgets">
+                    <h3>Accesos rápidos</h3>
+                    <nav>
+                        <ul>
+                            <li class="widget-option" style='--bg:#dfe7ff;'>
+                                <i class="material-icons-round icon-widget" style="--color: #6688ee;">add_box</i>
+                                <p>Crear nuevo curso</p>
+                            </li>
+                            <li class="widget-option" style='--bg: #78dbb35b;'>
+                                <i class="material-icons-round icon-widget" style="--color: #8a8cd1;">person_add_alt_1</i>
+                                <p>Ver lista de cursos</p>
+                            </li>
+                            <li class="widget-option" style='--bg: #a4a6db63;'>
+                                <i class="material-icons-round icon-widget" style="--color: #8a8cd1;">person_add_alt_1</i>
+                                <p>Crear estudiante</p>
+                            </li>
+                            <li class="widget-option" style='--bg: #febf024a;'>
+                                <i class="material-icons-round icon-widget" style="--color: #fdb842;">supervisor_account</i>
+                                <p>Ver lista de estudiantes</p>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <footer>
+                    <p class="final-footer">Aplicación web realizada por Santiago Baron Zuleta</p>
+                </footer>
             </div> 
         </div>
     </div>

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
-@import '../../node_modules/material-icons/iconfont/material-icons.css';
+@import './material-icons/iconfont/material-icons.css';
 
 * {
 	padding: 0;
@@ -52,6 +52,15 @@
     --dark: #282f3a;
     --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+body::-webkit-scrollbar , #adminPanel::-webkit-scrollbar{
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: var(--gray-light);
+    border-radius: 5px;
 }
 
 .main-nav{
@@ -174,6 +183,7 @@
 
 .icon-menu{
     margin-right: 15px;
+    
 }
 
 .arrow-menu{
@@ -194,6 +204,9 @@
     background-color: #f5f7ff;
     width: 100%;
     padding: 40px;
+    border-left: 2px solid var(--gray-lightest);
+    border-right: 2px solid var(--gray-lightest);
+    min-height: 100vh;
 }
 
 .dashboard-message{
@@ -227,9 +240,10 @@
 }
 
 .dashboard-last-courses h2{
-    font-size: 16px;
     font-weight: 600;
     margin-bottom: 30px;
+    font-size: 15px;
+    color: var(--dark);
 }
 
 .cards{
@@ -251,6 +265,12 @@
     grid-column-gap: 20px;
     grid-row-gap: 0px;
     cursor: pointer;
+    transition: 0.2s all;
+}
+
+.course-card:hover{
+    transform: translate(2px, -2px);
+    transition: 0.2s all;
 }
 
 .course-card > span{
@@ -291,9 +311,264 @@
     font-size: 30px;
 }
 
+.students-page{
+    position: relative;
+}
+
+.students-page h2{
+    line-height: 40px;
+    margin-bottom: 40px;
+}
+
+.buttonCreateStudent{
+    align-items: center;
+    background-color: var(--danger);
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+    height: 50px;
+    justify-content: center;
+    margin-bottom: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.3s all;
+    width: 200px;
+}
+
+.buttonCreateStudent:hover{
+    background-color: #e13d3d;
+    transition: 0.3s all;
+}
+
+.buttonCreateStudent i{
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.students-page > form{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 5fr 1fr 4fr;
+    column-gap: 0;
+    position: relative;
+    padding: 20px;
+    background-color:#dcdcf1 ;
+    border-radius: 10px;
+    box-shadow: 0px 5px 21px -5px #cdd1e154;
+}
+
+.input-section{
+    position: relative;
+}
+
+.input-section input{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0 0 0 50px;
+    font-size: 15px;
+}
+
+.input-section label{
+    position: absolute;
+    top: 13px;
+    left: 20px;
+    font-size: 25px;
+    color: var(--gray-light);
+    z-index: 10;
+    
+}
+
+.students-page > form > button{
+    background-color: #4b49ac;
+    border-radius: 10px;
+    margin-left: -30px;
+    color: #fff;
+    font-size: 15px;
+    font-size: 15;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.students-page > form > button:hover{
+    background-color: #5351db;
+    transition: 0.3s all;
+}
+
+.option-selector{
+    margin-left: 30px;
+    border-radius: 10px;
+    padding: 0 0 0 20px;
+    font-size: 15px;
+}
+
+
+.student-form{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    column-gap: 50px;
+    margin-top: 70px;
+}
+
+.form-student-card{
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 5px 290px -5px #7d7d7e54;
+    padding: 50px;
+    position: relative;
+    z-index: 20;
+}
+
+.form-student-card h3{
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.inputs-students-form{
+    margin-top: 30px;
+}
+
+.inputs-students-form input{
+    display: block;
+    width: 90%;
+    height: 50px;
+    background-color: var(--gray-lighter);
+    border-radius: 10px;
+    border: 1px solid var(--gray-lightest);
+    margin: 5px 0 25px 0;
+    padding: 0 0 0 20px;
+}
+
+.inputs-students-form button{
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--info);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+.inputs-students-form > button:hover{
+    transform: translate(2px,-2px);
+    transition: 0.2s all;
+}
+
+.students-metrics{
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    background-color: #141925;
+    box-shadow: 0px 5px 21px -5px #08080854;
+    position: relative;
+    z-index: 21;
+    color: #fff;
+    font-size: 17px;
+}
+
+.students-counter{
+    padding: 50px;
+}
+
+.students-counter h3{
+    font-size: 44px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
 
 /* Menu de widgets */
 
 .widgets-menu{
     width: 370px;
+    padding: 40px;
+    position: fixed;
+    right: 0;
+    top: 60px;
+}
+
+.profile-card{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+.profile-card h3{
+    font-size: 50px;
+    padding: 60px;
+    border-radius: 50%;
+    border: 4px solid var(--gray-lighter);
+    margin-bottom: 30px;
+}
+
+.profile-card > p{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.profile-card > span{
+   color: var(--gray-light); 
+   font-weight: 500;
+}
+
+.widgets h3{
+    font-size: 15px;
+    color: var(--dark);
+    margin-bottom: 20px;
+}
+
+.widget-option{
+    width: 100%;
+    height: 80px;
+    background-color: var(--bg);
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+.icon-widget{
+    color: var(--color);
+    font-size: 25px;
+}
+
+
+.widget-option:hover{
+    transform: translate(2px, -2px);
+    transition: 0.2s all;
+}
+
+.widget-option p{
+    font-size: 16px;
+    line-height: 25px;
+    color: var(--dark);
+}
+
+/* Final footer */
+
+footer{
+    margin-top: 40px;
+}
+
+.final-footer{
+    font-size: 15px;
+    text-align: center;
+    color: var(--dark);
 }

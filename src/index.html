@@ -29,27 +29,27 @@
         <div class="main-container">
             <nav class="sidebar">
                 <ul class="nav">
-                    <li class="nav-item active">
+                    <li class="nav-item active" id="dashboardButton">
                         <i class="material-icons-round icon-menu">dashboard</i>
                         <span>Dashboard</span>
                         <i class="material-icons-round arrow-menu">keyboard_arrow_right</i>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="coursesButton">
                         <i class="material-icons-round icon-menu">backup_table</i>
                         <span>Cursos</span>
                         <i class="material-icons-round arrow-menu">keyboard_arrow_right</i>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="studentsButton">
                         <i class="material-icons-round icon-menu">person</i>
                         <span>Estudiantes</span>
                         <i class="material-icons-round arrow-menu">keyboard_arrow_right</i>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="metricsButton">
                         <i class="material-icons-round icon-menu">insert_chart</i>
                         <span>Estadísticas</span>
                         <i class="material-icons-round arrow-menu">keyboard_arrow_right</i>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="documentsButton">
                         <i class="material-icons-outlined icon-menu">article</i>
                         <span>Documentación</span>
                     </li>
@@ -60,7 +60,7 @@
 
                     <!-- Aquí empieza el verdadero contenido -->
 
-                    <div class="dashboard-page" style="display:none ;">
+                    <div class="dashboard-page" id="dashboardPage">
 
                         <div class="dashboard-message">
                             <h2>Bienvenido de vuelta!</h2>
@@ -106,17 +106,21 @@
 
                     </div>
 
-                    <div class="students-page">
+                    <div class="courses" id="coursesPage" style="display:none;">
+
+                    </div>
+
+                    <div class="students-page" id="studentsPage" style="display:none;">
 
                         <h2>Estudiantes</h2>
-                        <div class="buttonCreateStudent">
+                        <div class="buttonCreateStudent" id="studentSwitch">
                             <i class="material-icons-round icon-widget" style="--color: #fff;">person_add_alt_1</i>
                             <span class="createStudent">Crear estudiante</span>
                         </div>
 
 
-                        <div class="students-results" style="display:none ;">
-                            <form action="">
+                        <div class="students-results" id="studentsResult">
+                            <form action="" class="filter-students">
                                 <div class="input-section">
                                     <label class="material-icons-round">search</label>
                                     <input type="text" placeholder="Busca un estudiante aquí">
@@ -130,7 +134,7 @@
                             </form>
                         </div>
 
-                        <div class="student-form">
+                        <div class="student-form" id="studentForm" style="display:none;">
                             <div class="students-metrics">
                                 <div class="students-counter">
                                     <h3>Estas creando un nuevo estudiante</h3>
@@ -138,31 +142,38 @@
                                 </div>
                             </div>
                             <div class="form-student-card">
-                                <form action="">
+                                <form action="/new" method="POST">
                                     <h3>Crear estudiante</h3>
                                     <p>A continuación, rellene los campos con la información solicitada</p>
 
                                     <div class="inputs-students-form">
                                         <label for="">Nombre</label>
-                                        <input type="text" placeholder="Nombres del estudiante">
+                                        <input type="text" placeholder="Nombres del estudiante" name="name" id="name">
 
                                         <label for="">Apellidos</label>
-                                        <input type="text" placeholder="Apellidos del estudiante">
+                                        <input type="text" placeholder="Apellidos del estudiante" name="lastName" id="lastName">
 
                                         <label for="">Edad</label>
-                                        <input type="text" placeholder="Edad del estudiante">
+                                        <input type="text" placeholder="Edad del estudiante" name="age" id="age">
 
                                         <label for="">Correo electrónico</label>
-                                        <input type="text" placeholder="Correo electrónico del estudiante">
+                                        <input type="text" placeholder="Correo electrónico del estudiante" name="email" id="email">
 
                                         <label for="">Numero de teléfono</label>
-                                        <input type="text" placeholder="Teléfono del estudiante">
+                                        <input type="text" placeholder="Teléfono del estudiante" name="phoneNumber" id="phoneNumber">
 
                                         <button type="submit">Crear estudiante</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
+
+                    </div>
+
+                    <div class="metrics" id="metricsPage" style="display:none;">
+
+                    </div>
+                    <div class="documents" id="documentsPage" style="display:none;">
 
                     </div>
 

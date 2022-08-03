@@ -161,6 +161,10 @@ body::-webkit-scrollbar-thumb{
     color: var(--white) !important;
 }
 
+.inactive{
+    background-color: #fff;
+}
+
 .nav-item:hover{
     background-color: #4B49AC;
     color: var(--white) !important;
@@ -348,7 +352,7 @@ body::-webkit-scrollbar-thumb{
     font-size: 20px;
 }
 
-.students-page > form{
+.filter-students{
     width: 100%;
     display: grid;
     grid-template-columns: 5fr 1fr 4fr;
@@ -382,7 +386,7 @@ body::-webkit-scrollbar-thumb{
     
 }
 
-.students-page > form > button{
+.filter-students > button{
     background-color: #4b49ac;
     border-radius: 10px;
     margin-left: -30px;
@@ -394,7 +398,7 @@ body::-webkit-scrollbar-thumb{
     transition: 0.3s all;
 }
 
-.students-page > form > button:hover{
+.filter-students > button:hover{
     background-color: #5351db;
     transition: 0.3s all;
 }

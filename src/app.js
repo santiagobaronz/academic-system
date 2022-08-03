@@ -9,11 +9,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./src'));
 app.use(express.json());
 
-const students = [
-    {"id": 1, "name": "Jorge", "age": 20, "enroll": true},
-    {"id": 2, "name": "Manuel", "age": 30, "enroll": true},
-    {"id": 3, "name": "Ana", "age": 40, "enroll": false}
-]
 
 app.get('/', (req, res) => {
     res.setHeader('Content-type', 'text/html');
@@ -38,19 +33,24 @@ app.post('/new', (req,res) => {
     let file = fs.readFileSync('./src/db/students.json', 'utf-8');
     const json = JSON.parse(file);
 
-    const nombre = req.body.nombre;
-    const edad = req.body.edad;
+    const name = req.body.name;
+    const lastName = req.body.lastName;
+    const age = req.body.age;
+    const email = req.body.email;
+    const phoneNumber = req.body.phoneNumber;
 
     const student = {
-        id: json.estudiantes.length + 1,
-        code: `2022-${id}`,
-        name: nombre,
+        id: json.students.length + 1,
+        code: `2022-${json.students.length + 1}`,
+        name: name,
         lastName: lastName,
-        age: parseInt(edad),
+        age: parseInt(age),
+        email: email,
+        phoneNumber,
         courses: []
     };
 
-    json.estudiantes.push(student);
+    json.students.push(student);
     file = fs.writeFileSync('./src/db/students.json', JSON.stringify(json));
 })
 

@@ -210,7 +210,7 @@ body::-webkit-scrollbar-thumb{
     padding: 40px;
     border-left: 2px solid var(--gray-lightest);
     border-right: 2px solid var(--gray-lightest);
-    min-height: 100vh;
+    min-height: calc(100vh - 40px);
 }
 
 .dashboard-message{
@@ -355,7 +355,7 @@ body::-webkit-scrollbar-thumb{
 .filter-students{
     width: 100%;
     display: grid;
-    grid-template-columns: 5fr 1fr 4fr;
+    grid-template-columns: 5fr 4fr 2fr;
     column-gap: 0;
     position: relative;
     padding: 20px;
@@ -389,7 +389,7 @@ body::-webkit-scrollbar-thumb{
 .filter-students > button{
     background-color: #4b49ac;
     border-radius: 10px;
-    margin-left: -30px;
+    margin-left: 30px;
     color: #fff;
     font-size: 15px;
     font-size: 15;
@@ -406,7 +406,8 @@ body::-webkit-scrollbar-thumb{
 .option-selector{
     margin-left: 30px;
     border-radius: 10px;
-    padding: 0 0 0 20px;
+    padding: 0 20px 0 20px;
+    border-right: 18px solid transparent;
     font-size: 15px;
 }
 
@@ -447,6 +448,7 @@ body::-webkit-scrollbar-thumb{
     border: 1px solid var(--gray-lightest);
     margin: 5px 0 25px 0;
     padding: 0 0 0 20px;
+    font-size: 16px;
 }
 
 .inputs-students-form button{
@@ -467,7 +469,7 @@ body::-webkit-scrollbar-thumb{
 
 .students-metrics{
     width: 100%;
-    height: auto;
+    height: 340px;
     border-radius: 20px;
     background-color: #141925;
     box-shadow: 0px 5px 21px -5px #08080854;
@@ -486,6 +488,87 @@ body::-webkit-scrollbar-thumb{
     font-weight: 500;
     margin-bottom: 30px;
 }
+
+.userTable{
+    margin-top: 40px;
+}
+
+
+#results{
+    width: 100%;
+    border-collapse: collapse; 
+}
+
+#results .userRow{
+    height: 90px;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.41);
+}
+
+#results .userTr{
+    height: 60px;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.41);
+}
+
+.adjustWidth{
+    width: var(--aw);
+}
+
+#results tr th{
+    font-weight: 500;
+    text-align: left;
+}
+
+.logoUser{
+    background-color: #ffddd2;
+    padding: 15px;
+    border-radius: 50%;
+    margin-right: 20px;
+    color: #c85c46;
+}
+
+#results tr:nth-child(2n+1) td .logoUser{
+    background-color: #e6b4e5;
+    color:#6b3f91;
+}
+
+#results tr:nth-child(3n+1) td .logoUser{
+    background-color: #b9ead8;
+    color:#348065;
+}
+
+#results tr:nth-child(4n+1) td .logoUser{
+    background-color: #bfe9ff;
+    color:#1c6b96;
+}
+
+.editUserButton{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--orange);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+.editUserButton:hover{
+    transform: translate(1px, -1px);
+    transition: 0.2s all;
+}
+
+.noResultsAlert{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+
+
+
+
 
 
 /* Menu de widgets */

@@ -123,14 +123,18 @@
                             <form action="" class="filter-students">
                                 <div class="input-section">
                                     <label class="material-icons-round">search</label>
-                                    <input type="text" placeholder="Busca un estudiante aquí">
+                                    <input type="text" placeholder="Busca un estudiante aquí" id="filterStudentInput">
                                 </div>
-    
-                                <button>Buscar</button>
-    
-                                <select name="" id="" class="option-selector">
-                                    <option value="">Selecciona una opción</option>
+
+                                <select name="selectorStudentInput" id="selectorStudentInput" class="option-selector">
+                                    <option value="nothing">Selecciona una opción</option>
+                                    <option value="name">Nombre del estudiante</option>
+                                    <option value="code">Código del estudiante</option>
+                                    <option value="email">Correo del estudiante</option>
+                                    <option value="phone">Teléfono del estudiante</option>
                                 </select>
+    
+                                <button id="filterStudentButton">Buscar</button>
                             </form>
                         </div>
 

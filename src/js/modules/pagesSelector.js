@@ -1,9 +1,11 @@
-/* Selecting the elements */
+/* Importing the function getAllUsers from the file getAllUsers.js. */
+import { getAllUsers } from "./getAllUsers.js";
 
 export const pageSelector = () => {
 
     /* Page selector */
 
+    /* Selecting the elements from the DOM. */
     const dashboardButton = document.querySelector("#dashboardButton");
     const coursesButton = document.querySelector("#coursesButton");
     const studentsButton = document.querySelector("#studentsButton");
@@ -21,6 +23,11 @@ export const pageSelector = () => {
     const appPages = [dashboardPage, coursesPage, studentsPage,
                     metricsPage, documentsPage];
 
+    /**
+     * It removes the display property of all the elements in the appPages array except the one that
+     * matches the page parameter
+     * @param page - The page you want to display.
+     */
     const removeStyles = (page) => {
         appPages.forEach((element, index) => {
             if(index != page){
@@ -35,6 +42,7 @@ export const pageSelector = () => {
         });
     }
 
+    /* Adding an event listener to each element in the buttonPages array. */
     buttonPages.forEach( (element, index) => {
         element.addEventListener("click", () => {
             removeStyles(index);
@@ -43,10 +51,21 @@ export const pageSelector = () => {
 
     /* User section selector */
 
+    /* Adding an event listener to the studentsButton element. When the button is clicked, the function
+    getAllUsers is called. */
+    studentsButton.addEventListener("click", () => {
+        getAllUsers();
+    })
+
+    /* Selecting the elements from the DOM. */
     const studentsResult = document.querySelector("#studentsResult");
     const studentsForm = document.querySelector("#studentForm");
     const studentSwitch = document.querySelector("#studentSwitch");
 
+    /* An event listener that is listening for a click event. When the event is triggered, it checks if
+    the studentsResult element is not hidden. If it is not hidden, it hides the studentsResult
+    element and shows the studentsForm element. If it is hidden, it shows the studentsResult element
+    and hides the studentsForm element. */
     studentSwitch.addEventListener("click", () => {
         if(studentsResult.style.display != "none"){
             studentsResult.style.display = "none";
@@ -58,6 +77,7 @@ export const pageSelector = () => {
             studentsForm.style.display = "none";
             studentSwitch.firstElementChild.innerHTML = "person_add_alt_1";
             studentSwitch.lastElementChild.innerHTML = "Crear estudiante";
+            getAllUsers();
         }
     });
 

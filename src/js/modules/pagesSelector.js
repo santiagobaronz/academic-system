@@ -1,5 +1,6 @@
 /* Importing the function getAllUsers from the file getAllUsers.js. */
 import { getAllUsers } from "./getAllUsers.js";
+import { getLastStudents } from "./getLastStudents.js";
 
 export const pageSelector = () => {
 
@@ -51,16 +52,24 @@ export const pageSelector = () => {
 
     /* User section selector */
 
-    /* Adding an event listener to the studentsButton element. When the button is clicked, the function
-    getAllUsers is called. */
-    studentsButton.addEventListener("click", () => {
-        getAllUsers();
-    })
-
     /* Selecting the elements from the DOM. */
     const studentsResult = document.querySelector("#studentsResult");
     const studentsForm = document.querySelector("#studentForm");
     const studentSwitch = document.querySelector("#studentSwitch");
+
+    /* Adding an event listener to the studentsButton element. When the button is clicked, the function
+    getAllUsers is called. */
+    studentsButton.addEventListener("click", () => {
+        studentsResult.style.display = "grid";
+        studentsForm.style.display = "none";
+        studentSwitch.firstElementChild.innerHTML = "person_add_alt_1";
+        studentSwitch.lastElementChild.innerHTML = "Crear estudiante";
+        getAllUsers();
+    })
+
+    dashboardButton.addEventListener("click", () => {
+        getLastStudents();
+    })
 
     /* An event listener that is listening for a click event. When the event is triggered, it checks if
     the studentsResult element is not hidden. If it is not hidden, it hides the studentsResult

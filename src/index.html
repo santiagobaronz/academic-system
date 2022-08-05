@@ -103,6 +103,15 @@
 
                         </div>
 
+                        <div class="dashboard-students-and-metrics">
+
+                            <div class="last-students" id="last-students">
+                                <h2>Últimos estudiantes registrados</h2>
+                            </div>
+                            <div class="system-metrics">
+                                
+                            </div>
+                        </div>
 
                     </div>
 
@@ -146,27 +155,42 @@
                                 </div>
                             </div>
                             <div class="form-student-card">
-                                <form action="/new" method="POST">
+                                <form action="/new/student" method="POST" id="formCreateStudents">
                                     <h3>Crear estudiante</h3>
                                     <p>A continuación, rellene los campos con la información solicitada</p>
 
                                     <div class="inputs-students-form">
-                                        <label for="">Nombre</label>
-                                        <input type="text" placeholder="Nombres del estudiante" name="name" id="name">
+                                        <div style="position:relative;">
+                                            <label for="name">Nombre</label>
+                                            <input type="text" placeholder="Nombres del estudiante" name="name" id="name">
+                                            <span class="material-icons form-icon" id="name-verification">error_outline</span>
+                                        </div>
 
-                                        <label for="">Apellidos</label>
-                                        <input type="text" placeholder="Apellidos del estudiante" name="lastName" id="lastName">
+                                        <div style="position:relative;">
+                                            <label for="lastName">Apellidos</label>
+                                            <input type="text" placeholder="Apellidos del estudiante" name="lastName" id="lastName">
+                                            <span class="material-icons form-icon" id="lastName-verification">error_outline</span>
+                                        </div>
 
-                                        <label for="">Edad</label>
-                                        <input type="text" placeholder="Edad del estudiante" name="age" id="age">
+                                        <div style="position:relative;">
+                                            <label for="age">Edad</label>
+                                            <input type="text" placeholder="Edad del estudiante" name="age" id="age">
+                                            <span class="material-icons form-icon" id="age-verification">error_outline</span>
+                                        </div>
 
-                                        <label for="">Correo electrónico</label>
-                                        <input type="text" placeholder="Correo electrónico del estudiante" name="email" id="email">
+                                        <div style="position:relative;">
+                                            <label for="email">Correo electrónico</label>
+                                            <input type="text" placeholder="Correo electrónico del estudiante" name="email" id="email">
+                                            <span class="material-icons form-icon" id="email-verification">error_outline</span>
+                                        </div>
 
-                                        <label for="">Numero de teléfono</label>
-                                        <input type="text" placeholder="Teléfono del estudiante" name="phoneNumber" id="phoneNumber">
+                                        <div style="position:relative;">
+                                            <label for="phoneNumber">Numero de teléfono</label>
+                                            <input type="text" placeholder="Teléfono del estudiante" name="phoneNumber" id="phoneNumber">
+                                            <span class="material-icons form-icon" id="phoneNumber-verification">error_outline</span>
+                                        </div>
 
-                                        <button type="submit">Crear estudiante</button>
+                                        <button type="submit" id="createStudentButton" disabled>Crear estudiante</button>
                                     </div>
                                 </form>
                             </div>
@@ -228,6 +252,7 @@
     -->
 
     <script src="./js/scripts.js" type="module"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 </html>

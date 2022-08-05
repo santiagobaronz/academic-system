@@ -106,8 +106,8 @@ app.get('/api/students/phone/:phone', (req, res) => {
 
 
 /* A route that is listening for a POST request to the /new path. */
-app.post('/new', (req,res) => {
-    res.setHeader('Content-type', 'text/html');
+app.post('/new/student', (req,res) => {
+    res.setHeader('Content-type', 'application/json');
 
     let file = fs.readFileSync('./src/db/students.json', 'utf-8');
     const json = JSON.parse(file);

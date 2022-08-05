@@ -15,7 +15,7 @@ export const studentFilter = () => {
         const filterInput = document.querySelector("#filterStudentInput").value;
         const selectorInput = document.querySelector("#selectorStudentInput").value;
 
-        (filterInput == undefined || selectorInput == "nothing") ? getAllUsers() : getAllUsers(filterInput, selectorInput);
+        (filterInput == "" || selectorInput == "nothing") ? getAllUsers() : getAllUsers(filterInput, selectorInput);
 
     })
 

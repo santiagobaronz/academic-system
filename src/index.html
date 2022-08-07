@@ -112,12 +112,115 @@
                                 
                             </div>
                         </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+
+                    <div class="courses-page" id="coursesPage" style="display:none;">
+
+
+                        <h2>Cursos</h2>
+                        <div class="buttonCreateCourse" id="coursesSwitch">
+                            <i class="material-icons-round icon-widget" style="--color: #fff;">person_add_alt_1</i>
+                            <span class="createCourse">Crear curso</span>
+                        </div>
+                        <div class="course-results" id="courseResult">
+                            <form action="" class="filter-course">
+                                <div class="input-section">
+                                    <label class="material-icons-round">search</label>
+                                    <input type="text" placeholder="Busca un curso aquí" id="filterCoursesInput">
+                                </div>
+
+                                <select name="selectorCoursesInput" id="selectorCoursesInput" class="option-selector">
+                                    <option value="nothing">Selecciona una opción</option>
+                                    <option value="name">Nombre de curso</option>
+                                    <option value="code">Código de curso</option>
+                                    <option value="theoretical">Cursos teóricos</option>
+                                    <option value="theoretical-practical">Cursos teórico - prácticos</option>
+                                </select>
+    
+                                <button id="filterCoursesButton">Buscar</button>
+                            </form>
+                        </div>
+
+                        <div class="courses-form" id="coursesForm" style="display:none;">
+                            <div class="form-courses-card">
+                                <form action="/new/course" method="POST" id="formCreateCourses">
+                                    <h3>Crear curso</h3>
+                                    <p>A continuación, rellene los campos con la información solicitada</p>
+
+                                    <div class="inputs-courses-form">
+                                        <div style="position:relative;">
+                                            <label for="name">Nombre del curso</label>
+                                            <input type="text" placeholder="Nombres del curso" name="courseName" id="courseName">
+                                            <span class="material-icons form-icon" id="name-course-verification">error_outline</span>
+                                        </div>
+
+                                        <div style="position:relative;">
+                                            <label for="lastName">Tipo de curso</label>
+                                            <select name="selectCourse" id="selectCourse" class="selectCourseOption">
+                                                <option value="nothing">Seleccione una opción</option>
+                                                <option value="Teorico">Curso Teórico</option>
+                                                <option value="Teorico-Practico">Curso Teórico practico</option>
+                                            </select>
+                                            <span class="material-icons form-icon" id="typeof-course-verification">error_outline</span>
+                                        </div>
+
+                                        <div style="position:relative;">
+                                            <label for="age">Créditos</label>
+                                            <input type="number" placeholder="Cantidad de créditos del curso" name="credits" id="credits">
+                                            <span class="material-icons form-icon" id="credits-course-verification">error_outline</span>
+                                        </div>
+
+                                        <div style="position:relative;">
+                                            <label for="email">Profesor del curso</label>
+                                            <input type="text" placeholder="Nombre del profesor" name="teacherName" id="teacherName">
+                                            <span class="material-icons form-icon" id="teacher-course-verification">error_outline</span>
+                                        </div>
+
+                                        <button type="submit" id="createCoursesButton" disabled>Crear curso</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="courses-metrics">
+                                <div class="courses-counter">
+                                    <h3>Estas creando un nuevo curso</h3>
+                                    <p>Completa el formulario para crear un nuevo curso.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="courseInfo">
+
+                        </div>
 
                     </div>
 
-                    <div class="courses" id="coursesPage" style="display:none;">
 
-                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
                     <div class="students-page" id="studentsPage" style="display:none;">
 

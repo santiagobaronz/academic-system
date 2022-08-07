@@ -1,4 +1,5 @@
 /* Importing the function getAllUsers from the file getAllUsers.js. */
+import { getAllCourses } from "./getAllCourses.js";
 import { getAllUsers } from "./getAllUsers.js";
 import { getLastStudents } from "./getLastStudents.js";
 
@@ -89,5 +90,38 @@ export const pageSelector = () => {
             getAllUsers();
         }
     });
+
+
+    const coursesResult = document.querySelector("#courseResult");
+    const coursesForm = document.querySelector("#coursesForm");
+    const courseInfoBox = document.querySelector("#courseInfo");
+    const coursesSwitch = document.querySelector("#coursesSwitch");
+
+    coursesSwitch.addEventListener("click", () => {
+        if(coursesResult.style.display != "none"){
+            coursesResult.style.display = "none";
+            coursesForm.style.display = "grid";
+            coursesSwitch.firstElementChild.innerHTML = "remove_red_eye";
+            coursesSwitch.lastElementChild.innerHTML = "Ver cursos";
+        }else{
+            coursesResult.style.display = "block";
+            coursesForm.style.display = "none";
+            coursesSwitch.firstElementChild.innerHTML = "person_add_alt_1";
+            coursesSwitch.lastElementChild.innerHTML = "Crear curso";
+            courseInfoBox.style.display = "none";
+            getAllCourses();
+        }
+    });
+
+    coursesButton.addEventListener("click", () => {
+        coursesResult.style.display = "grid";
+        coursesForm.style.display = "none";
+        courseInfoBox.style.display = "none";
+        coursesSwitch.firstElementChild.innerHTML = "person_add_alt_1";
+        coursesSwitch.lastElementChild.innerHTML = "Crear curso";
+        getAllCourses();
+    })
+
+    
 
 }

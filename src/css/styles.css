@@ -315,7 +315,6 @@ body::-webkit-scrollbar-thumb{
     font-size: 30px;
 }
 
-
 .dashboard-students-and-metrics{
     width: 100%;
     margin-top: 60px;
@@ -352,16 +351,16 @@ body::-webkit-scrollbar-thumb{
 
 
 
-.students-page{
+.students-page, .courses-page{
     position: relative;
 }
 
-.students-page h2{
+.students-page h2, .courses-page h2{
     line-height: 40px;
     margin-bottom: 40px;
 }
 
-.buttonCreateStudent{
+.buttonCreateStudent, .buttonCreateCourse{
     align-items: center;
     background-color: var(--danger);
     border-radius: 10px;
@@ -379,17 +378,17 @@ body::-webkit-scrollbar-thumb{
     width: 200px;
 }
 
-.buttonCreateStudent:hover{
+.buttonCreateStudent:hover, .buttonCreateCourse:hover{
     background-color: #e13d3d;
     transition: 0.3s all;
 }
 
-.buttonCreateStudent i{
+.buttonCreateStudent i, .buttonCreateCourse i{
     margin-right: 10px;
     font-size: 20px;
 }
 
-.filter-students{
+.filter-students, .filter-course{
     width: 100%;
     display: grid;
     grid-template-columns: 5fr 4fr 2fr;
@@ -423,7 +422,8 @@ body::-webkit-scrollbar-thumb{
     
 }
 
-.filter-students > button{
+.filter-students > button,
+.filter-course > button{
     background-color: #4b49ac;
     border-radius: 10px;
     margin-left: 30px;
@@ -435,7 +435,8 @@ body::-webkit-scrollbar-thumb{
     transition: 0.3s all;
 }
 
-.filter-students > button:hover{
+.filter-students > button:hover,
+.filter-course > button:hover{
     background-color: #5351db;
     transition: 0.3s all;
 }
@@ -456,7 +457,14 @@ body::-webkit-scrollbar-thumb{
     margin-top: 70px;
 }
 
-.form-student-card{
+.courses-form{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    column-gap: 50px;
+    margin-top: 70px;
+}
+
+.form-student-card, .form-courses-card{
     width: 100%;
     height: auto;
     background-color: #fff;
@@ -467,16 +475,17 @@ body::-webkit-scrollbar-thumb{
     z-index: 20;
 }
 
-.form-student-card h3{
+.form-student-card h3, .form-courses-card h3{
     color: var(--dark);
     margin-bottom: 10px;
 }
 
-.inputs-students-form{
+.inputs-students-form, .inputs-courses-form{
     margin-top: 30px;
 }
 
-.inputs-students-form input{
+.inputs-students-form input, .inputs-courses-form input,
+.selectCourseOption{
     display: block;
     width: 90%;
     height: 50px;
@@ -488,7 +497,11 @@ body::-webkit-scrollbar-thumb{
     font-size: 16px;
 }
 
-.inputs-students-form button{
+.selectCourseOption{
+    border-right: 18px solid transparent;
+}
+
+.inputs-students-form button, .inputs-courses-form button{
     width: 90%;
     height: 50px;
     border-radius: 10px;
@@ -515,12 +528,13 @@ body::-webkit-scrollbar-thumb{
     color: var(--red);
 }
 
-.inputs-students-form > button:hover{
+.inputs-students-form > button:hover,
+.inputs-courses-form > button:hover{
     transform: translate(2px,-2px);
     transition: 0.2s all;
 }
 
-.students-metrics{
+.students-metrics, .courses-metrics{
     width: 100%;
     height: 340px;
     border-radius: 20px;
@@ -532,15 +546,311 @@ body::-webkit-scrollbar-thumb{
     font-size: 17px;
 }
 
-.students-counter{
+.courses-metrics{
+    height: 280px !important;
+    background-color: var(--info);
+}
+
+.students-counter, .courses-counter{
     padding: 50px;
 }
 
-.students-counter h3{
+.students-counter h3, .courses-counter h3{
     font-size: 44px;
     font-weight: 500;
     margin-bottom: 30px;
 }
+
+.coursesResultsGrid{
+    margin-top: 40px;
+}
+
+#coursesResults{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.courseBox{
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.1s all;
+    box-shadow: 0px 5px 21px -5px #0000003d;
+    position: relative;
+    padding: 40px;
+}
+
+.courseBox:hover{
+    transform: translate(2px, -2px);
+    transition: 0.1s all;
+}
+
+.courseBox h3{
+    font-size: 22px;
+    font-weight: 500;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.courseBox:nth-child(1n+1){
+    border-radius: 15px;
+    background-color:#f2721f;
+}
+
+.courseBox:nth-child(2n+1){
+    border-radius: 15px;
+    background-color:#0080bc ;
+}
+
+.courseBox:nth-child(3n+1){
+    border-radius: 15px;
+    background-color: #1e3c50;
+}
+
+.courseBox:nth-child(4n+1){
+    border-radius: 15px;
+    background-color:#7952b3 ;
+}
+
+.icon-card-course{
+    position: absolute;
+    right: 25px;
+    bottom: 20px;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+/*#24baa6
+#5c3882
+#f08621
+#156284
+*/
+
+.courseCode{
+    margin-bottom: 30px;
+}
+
+
+
+/* Course info*/
+
+
+.courseInfoSection{
+    width: 100%;
+}
+
+.courseInfoTitle{
+    background-color: #4b49ac;
+    height: 150px;
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+.courseInfoTitle h3{
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 75px;
+}
+
+.courseInfoDetails{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+    margin-bottom: 40px;
+}
+
+.courseInfoDetails > div{
+    background-color: #fff;
+    height: 100px;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0px 5px 21px -5px #0000003d;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.courseInfoDetails > div > div{
+    display: block;
+}
+
+.card-course-title{
+    font-size: 14px;
+    color: var(--gray-light);
+    font-weight: 500;
+}
+
+.course-icon{
+    padding: 15px;
+    background-color: #dfe7ff;
+    border-radius: 15px;
+    margin-right: 20px;
+    color: #6688ee;
+    font-size: 30px;
+}
+
+.noStudents{
+    width: 55%;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0px 5px 21px -5px #0000003d;
+    padding: 40px;
+    border-radius: 15px
+}
+
+.noStudents h3{
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.noStudents button{
+    display: block;
+    margin: auto;
+    padding: 20px 80px;
+    border-radius: 15px;
+    background: var(--danger);
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.noStudents button:hover{
+    background-color: #e13d3d;
+    transition: 0.3s all;
+    transform: translate(1px,-1px);
+}
+
+.enrollPopUp{
+    display: grid;
+    position: fixed;
+    z-index: 1060;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    grid-template-areas:
+        "top-start top top-end"
+        "center-start center center-end"
+        "bottom-start bottom-center bottom-end";
+    height: 100%;
+    padding: 0.625em;
+    overflow-x: hidden;
+    transition: background-color .1s;
+    background-color: #0000008a;
+}
+
+.enrollPopUp > form{
+    width: 700px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    background: #fff;
+    padding: 40px;
+}
+
+.formExtend{
+    width: 1000px !important;
+}
+
+.enrollPopUp > form > h3{
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #4b49ac;
+    color: #fff;
+    font-weight: 500;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.enrollPopUp > form > label{
+    width: 100%;
+    display: block;
+}
+
+#selectStudents{
+    width: 100%;
+    height: 50px;
+    background: var(--gray-lightest);
+    border-radius: 10px;
+    padding-left: 20px;
+    margin-top: 10px;
+    border-right: 18px solid transparent;
+    font-size: 15px;
+}
+
+.grades{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
+    margin-top: 20px;
+}
+
+.gradesExtend{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.grade{
+    background-color: var(--gray-lightest);
+    padding: 10px 20px;
+    border-radius: 10px;
+    height: 100px;
+}
+
+.grade label{
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+.grade input{
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.enrollPopUp > form > button{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: #4b49ac;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.enrollPopUp > form > button:hover{
+    background-color: #5351db;
+    transition: 0.3s all;
+    transform: translate(2px,-2px);
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] { -moz-appearance:textfield; }
+
+
 
 .userTable{
     margin-top: 40px;

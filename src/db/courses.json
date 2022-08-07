@@ -1,0 +1,68 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "code": "2022-(C1)",
+      "courseName": "FÍSICA",
+      "typeOfCourse": "Teorico",
+      "credits": "1",
+      "teachersName": "Santiago",
+      "creationDate": "5/8/2022 18:03:35",
+      "students": [
+        {
+          "studentId": "1",
+          "grade1": "50",
+          "grade2": "25",
+          "grade3": "35"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "code": "2022-(C2)",
+      "courseName": "XX",
+      "typeOfCourse": "Teorico",
+      "credits": "2",
+      "teachersName": "Santiago",
+      "creationDate": "5/8/2022 18:03:56",
+      "students": [
+        {
+          "studentId": "37",
+          "grade1": "25",
+          "grade2": "25",
+          "grade3": "25"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "code": "2022-(C3)",
+      "courseName": "ÁLGEBRA LINEAL",
+      "typeOfCourse": "Teorico-Practico",
+      "credits": "3",
+      "teachersName": "Santiago Baron",
+      "creationDate": "5/8/2022 18:04:22",
+      "students": []
+    },
+    {
+      "id": 4,
+      "code": "2022-(C4)",
+      "courseName": "PROGRAMACIÓN ORIENTADA A OBJETOS",
+      "typeOfCourse": "Teorico",
+      "credits": "4",
+      "teachersName": "Santiago",
+      "creationDate": "5/8/2022 18:21:32",
+      "students": []
+    },
+    {
+      "id": 5,
+      "code": "2022-(C5)",
+      "courseName": "HOMBRE SOCIEDAD Y ECOLOGIA",
+      "typeOfCourse": "Teorico",
+      "credits": "1",
+      "teachersName": "Carlos Reina",
+      "creationDate": "6/8/2022 08:52:53",
+      "students": []
+    }
+  ]
+}

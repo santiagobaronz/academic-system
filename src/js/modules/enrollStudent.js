@@ -1,3 +1,5 @@
+import { getCourseInfo } from "./getInfoCourse.js";
+
 export const enrollStudent = (course) => {
 
     const fillSelect = async () => {
@@ -7,8 +9,6 @@ export const enrollStudent = (course) => {
         await fetch("./api/students")
         .then(response => response.json())
         .then(data => students = data.students)
-
-        console.log(students);
 
         students.forEach(student => {
 
@@ -61,20 +61,20 @@ export const enrollStudent = (course) => {
 
             <div class='grades gradesExtend'>
                 <div class='grade'>
-                    <label>Nota 1 (30%)</label id='grade1'>
-                    <input type="number">
+                    <label>Nota 1 (30%)</label>
+                    <input type="number" id='grade1'>
                 </div>
                 <div class='grade'>
-                    <label>Nota 2 (25%)</label id='grade2'>
-                    <input type="number">
+                    <label>Nota 2 (25%)</label>
+                    <input type="number" id='grade2'>
                 </div>
                 <div class='grade'>
-                    <label>Nota 3 (20%)</label id='grade3'>
-                    <input type="number">
+                    <label>Nota 3 (20%)</label>
+                    <input type="number" id='grade3'>
                 </div>
                 <div class='grade'>
-                    <label>Nota 4 (25%)</label id='grade4'>
-                    <input type="number">
+                    <label>Nota 4 (25%)</label>
+                    <input type="number" id='grade4'>
                 </div>
             </div>
             <button id='buttonAddStudent'>Agregar estudiante al curso</button>
@@ -86,8 +86,10 @@ export const enrollStudent = (course) => {
 
     document.addEventListener("mouseup", function(event) {
         var obj = document.querySelector("#formAddStudent")
-        if (!obj.contains(event.target)) {
-            enrollPopUp.remove();
+        if(obj != undefined){
+            if (!obj.contains(event.target)) {
+                enrollPopUp.remove();
+            }
         }
     });
 
@@ -96,27 +98,45 @@ export const enrollStudent = (course) => {
     buttonAddStudent.addEventListener("click", (e) => {
         e.preventDefault();
 
-        const idStudent = document.querySelector("#selectStudents").value;
-        const grade1 = document.querySelector("#grade1").value
-        const grade2 = document.querySelector("#grade2").value
-        const grade3 = document.querySelector("#grade3").value
+        let idStudent = document.querySelector("#selectStudents").value;
+        let grade1 = document.querySelector("#grade1").value
+        let grade2 = document.querySelector("#grade2").value
+        let grade3 = document.querySelector("#grade3").value
 
         if(course.typeOfCourse == "Teorico"){
             fetch("/edit/course/theoretical", {
                 method: 'POST',
                 headers: {'Content-type': 'application/json'},
-                body: JSON.stringify({courseId: course.id ,id: idStudent, grade1: grade1, grade2: grade2, grade3: grade3})
+                body: JSON.stringify({courseName: course.courseName, courseId: course.id ,id: idStudent,
+                                     grade1: grade1, grade2: grade2, grade3: grade3})
             });
+
+            setTimeout(() => {
+                console.clear()
+            }, 1000);
+
+            getCourseInfo(course.code);
+
         }else{
-            const grade4 = document.querySelector("#grade4")
-            fetch("/new/course", {
+            let grade4 = document.querySelector("#grade4").value
+            fetch("/edit/course/theoretical-practical", {
                 method: 'POST',
                 headers: {'Content-type': 'application/json'},
-                body: JSON.stringify({id: idStudent, grade1: grade1, grade2: grade2, grade3: grade3, grade4:grade4})
+                body: JSON.stringify({courseName: course.courseName, courseId: course.id ,id: idStudent,
+                    grade1: grade1, grade2: grade2, grade3: grade3, grade4:grade4})
             });
+
+            setTimeout(() => {
+                console.clear()
+            }, 1000);
+
+            getCourseInfo(course.code);
+            
         }
 
     })
+
+    
 
 
 }

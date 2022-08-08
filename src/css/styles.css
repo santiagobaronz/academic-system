@@ -852,7 +852,7 @@ input[type=number] { -moz-appearance:textfield; }
 
 
 
-.userTable{
+.userTable, .userTable2{
     margin-top: 40px;
 }
 
@@ -860,19 +860,24 @@ input[type=number] { -moz-appearance:textfield; }
     margin-top: 30px;
 }
 
-#results, #lastStudents{
+#results, #lastStudents, #resultsCourse{
     width: 100%;
     border-collapse: collapse; 
 }
 
-#results .userRow{
+#results .userRow, #resultsCourse .userRow{
     height: 90px;
     border-bottom: 1px solid rgba(204, 204, 204, 0.41);
 }
 
-.userTr{
+.userTr, .courseTr{
     height: 60px;
     border-bottom: 1px solid rgba(204, 204, 204, 0.41);
+}
+
+.courseTr th {
+    text-align: left;
+    font-weight: 500;
 }
 
 .adjustWidth{
@@ -882,6 +887,10 @@ input[type=number] { -moz-appearance:textfield; }
 .studentRow{
     height: 70px;
     border-bottom: 1px solid rgba(204, 204, 204, 0.41);
+}
+
+#resultsCourse{
+    margin-bottom: 40px;
 }
 
 #results tr th, #lastStudents tr th{
@@ -898,19 +907,22 @@ input[type=number] { -moz-appearance:textfield; }
 }
 
 #results tr:nth-child(2n+1) td .logoUser,
-#lastStudents tr:nth-child(2n+1) td .logoUser{
+#lastStudents tr:nth-child(2n+1) td .logoUser,
+#resultsCourse tr:nth-child(2n+1) td .logoUser{
     background-color: #e6b4e5;
     color:#6b3f91;
 }
 
 #results tr:nth-child(3n+1) td .logoUser,
-#lastStudents tr:nth-child(3n+1) td .logoUser{
+#lastStudents tr:nth-child(3n+1) td .logoUser,
+#resultsCourse tr:nth-child(3n+1) td .logoUser{
     background-color: #b9ead8;
     color:#348065;
 }
 
 #results tr:nth-child(4n+1) td .logoUser,
-#lastStudents tr:nth-child(4n+1) td .logoUser{
+#lastStudents tr:nth-child(4n+1) td .logoUser,
+#resultsCourse tr:nth-child(4n+1) td .logoUser{
     background-color: #bfe9ff;
     color:#1c6b96;
 }
@@ -920,6 +932,26 @@ input[type=number] { -moz-appearance:textfield; }
     height: 40px;
     border-radius: 5px;
     background-color: var(--orange);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+.saveGradesButton{
+    width: 80%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--green);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+.deleteUserButton{
+    width: 80%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--dark);
     color: #fff;
     cursor: pointer;
     transition: 0.2s all;
@@ -939,8 +971,18 @@ input[type=number] { -moz-appearance:textfield; }
     font-size: 20px;
 }
 
+.inputGrades{
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    text-align: center;
+    background-color: var(--gray);
+    color: #fff;
+}
 
-
+.inputGradesDisabled{
+    display: none;
+}
 
 
 

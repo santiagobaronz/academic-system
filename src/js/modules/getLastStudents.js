@@ -30,7 +30,10 @@ export const getLastStudents = async () => {
 
     lastStudentsArray.reverse();
 
-    for (let i = 0; i < 5; i++) {
+    let ArrayLength
+    lastStudentsArray.length < 5 ? ArrayLength = lastStudentsArray.length : ArrayLength = 5;
+
+    for (let i = 0; i < ArrayLength; i++) {
        
         const fullName = `${lastStudentsArray[i].name} ${lastStudentsArray[i].lastName}`;
         const logoUser = lastStudentsArray[i].name.charAt(0) + "" + lastStudentsArray[i].lastName.charAt(0);

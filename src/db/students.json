@@ -9,260 +9,40 @@
       "email": "santiagobazul@hotmail.com",
       "phoneNumber": "3203773769",
       "registrationDate": "4/8/2022 07:54:20",
-      "courses": []
-    },
-    {
-      "id": 2,
-      "code": "2022-2",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 07:54:47",
-      "courses": []
-    },
-    {
-      "id": 3,
-      "code": "2022-3",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 66,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 07:57:06",
-      "courses": []
-    },
-    {
-      "id": 4,
-      "code": "2022-4",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 07:57:26",
-      "courses": []
-    },
-    {
-      "id": 5,
-      "code": "2022-5",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 07:57:57",
-      "courses": []
+      "courses": [
+        {
+          "courseId": 1,
+          "courseName": "FÍSICA",
+          "courseType": "Teorico"
+        },
+        {
+          "courseId": 3,
+          "courseName": "ÁLGEBRA LINEAL",
+          "courseType": "Teorico-Practico"
+        }
+      ]
     },
     {
       "id": 6,
       "code": "2022-6",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
+      "name": "Andres",
+      "lastName": "Martinez",
       "age": 18,
       "email": "santiagobazul@hotmail.com",
       "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 07:59:16",
-      "courses": []
-    },
-    {
-      "id": 7,
-      "code": "2022-7",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 07:59:16",
-      "courses": []
-    },
-    {
-      "id": 8,
-      "code": "2022-8",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 08:00:22",
-      "courses": []
-    },
-    {
-      "id": 9,
-      "code": "2022-9",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": null,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 08:00:43",
-      "courses": []
-    },
-    {
-      "id": 28,
-      "code": "2022-28",
-      "name": "Juan",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 18:30:14",
-      "courses": []
-    },
-    {
-      "id": 29,
-      "code": "2022-29",
-      "name": "Andrea",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 18:31:31",
-      "courses": []
-    },
-    {
-      "id": 30,
-      "code": "2022-30",
-      "name": "Andrea",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 18:31:32",
-      "courses": []
-    },
-    {
-      "id": 31,
-      "code": "2022-31",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 18:31:58",
-      "courses": []
-    },
-    {
-      "id": 32,
-      "code": "2022-32",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 18:31:59",
-      "courses": []
-    },
-    {
-      "id": 33,
-      "code": "2022-33",
-      "name": "Juan",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 18:32:20",
-      "courses": []
-    },
-    {
-      "id": 34,
-      "code": "2022-34",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 66,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 18:43:39",
-      "courses": []
-    },
-    {
-      "id": 35,
-      "code": "2022-35",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 21:33:30",
-      "courses": []
-    },
-    {
-      "id": 36,
-      "code": "2022-36",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 21:33:30",
-      "courses": []
-    },
-    {
-      "id": 37,
-      "code": "2022-37",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 22,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 21:33:45",
-      "courses": []
-    },
-    {
-      "id": 38,
-      "code": "2022-38",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 21:34:45",
-      "courses": []
-    },
-    {
-      "id": 39,
-      "code": "2022-39",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "6/8/2022 21:37:43",
-      "courses": []
-    },
-    {
-      "id": 40,
-      "code": "2022-40",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "6/8/2022 21:37:43",
-      "courses": []
-    },
-    {
-      "id": 41,
-      "code": "2022-41",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "6/8/2022 21:41:06",
-      "courses": []
-    },
-    {
-      "id": 42,
-      "code": "2022-42",
-      "name": "Santiago",
-      "lastName": "Baron Zuleta",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "6/8/2022 21:41:07",
-      "courses": []
+      "registrationDate": "4/8/2022 07:54:47",
+      "courses": [
+        {
+          "courseId": 3,
+          "courseName": "ÁLGEBRA LINEAL",
+          "courseType": "Teorico-Practico"
+        },
+        {
+          "courseId": 1,
+          "courseName": "FÍSICA",
+          "courseType": "Teorico"
+        }
+      ]
     }
   ]
 }

@@ -245,27 +245,84 @@ app.get('/api/courses/theoretical-practical/all', (req, res) => {
 app.post('/edit/course/theoretical', (req,res) => {
     res.setHeader('Content-type', 'application/json');
 
-    let file = fs.readFileSync('./src/db/courses.json', 'utf-8');
-    const json = JSON.parse(file);
+    let fileCourses = fs.readFileSync('./src/db/courses.json', 'utf-8');
+    const jsonCourses = JSON.parse(fileCourses);
 
+    let fileStudents = fs.readFileSync('./src/db/students.json', 'utf-8');
+    const jsonStudents = JSON.parse(fileStudents);
+
+    const courseName = req.body.courseName;
     const courseId = req.body.courseId;
     const studentId = req.body.id;
     const grade1 = req.body.grade1;
     const grade2 = req.body.grade2;
     const grade3 = req.body.grade3;
     
-    const course = {
+    const course_Courses = {
         studentId: studentId,
         grade1: grade1,
         grade2: grade2,
         grade3: grade3
     }
 
-    json.courses[courseId-1].students.push(course);
-    file = fs.writeFileSync('./src/db/courses.json', JSON.stringify(json,null,2));
+    const course_Students = {
+        courseId: courseId,
+        courseName: courseName,
+        courseType: "Teorico"
+    }
+
+    const index = (element) => element.id == studentId; 
+
+    jsonStudents.students[jsonStudents.students.findIndex(index)].courses.push(course_Students);
+    fileStudents = fs.writeFileSync('./src/db/students.json', JSON.stringify(jsonStudents,null,2));
+    
+    const index2 = (element) => element.id == courseId; 
+
+    jsonCourses.courses[jsonCourses.courses.findIndex(index2)].students.push(course_Courses);
+    fileCourses = fs.writeFileSync('./src/db/courses.json', JSON.stringify(jsonCourses,null,2));
 })
 
+app.post('/edit/course/theoretical-practical', (req,res) => {
+    res.setHeader('Content-type', 'application/json');
 
+    let fileCourses = fs.readFileSync('./src/db/courses.json', 'utf-8');
+    const jsonCourses = JSON.parse(fileCourses);
+
+    let fileStudents = fs.readFileSync('./src/db/students.json', 'utf-8');
+    const jsonStudents = JSON.parse(fileStudents);
+
+    const courseName = req.body.courseName;
+    const courseId = req.body.courseId;
+    const studentId = req.body.id;
+    const grade1 = req.body.grade1;
+    const grade2 = req.body.grade2;
+    const grade3 = req.body.grade3;
+    const grade4 = req.body.grade4;
+    
+    const course_Courses = {
+        studentId: studentId,
+        grade1: grade1,
+        grade2: grade2,
+        grade3: grade3,
+        grade4: grade4
+    }
+
+    const course_Students = {
+        courseId: courseId,
+        courseName: courseName,
+        courseType: "Teorico-Practico"
+    }
+
+    const index = (element) => element.id == studentId; 
+
+    jsonStudents.students[jsonStudents.students.findIndex(index)].courses.push(course_Students);
+    fileStudents = fs.writeFileSync('./src/db/students.json', JSON.stringify(jsonStudents,null,2));
+    
+    const index2 = (element) => element.id == courseId; 
+
+    jsonCourses.courses[jsonCourses.courses.findIndex(index2)].students.push(course_Courses);
+    fileCourses = fs.writeFileSync('./src/db/courses.json', JSON.stringify(jsonCourses,null,2));
+})
 
 
 

@@ -57,7 +57,6 @@ export const getAllCourses = async (data, type) => {
         /* Creating a table row for each student in the studentsArray variable. */
         coursesArray.forEach(course => {
     
-
             const numOfStudents = course.students.length == 0 ? "Ningún estudiante inscrito" : `${course.students.length} estudiantes inscritos`;
     
             const boxElement = document.createElement("div");

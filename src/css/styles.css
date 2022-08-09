@@ -909,21 +909,24 @@ input[type=number] { -moz-appearance:textfield; }
 
 #results tr:nth-child(2n+1) td .logoUser,
 #lastStudents tr:nth-child(2n+1) td .logoUser,
-#resultsCourse tr:nth-child(2n+1) td .logoUser{
+#resultsCourse tr:nth-child(2n+1) td .logoUser,
+.gridCourseResult:nth-child(2n+1) div .logoUser{
     background-color: #e6b4e5;
     color:#6b3f91;
 }
 
 #results tr:nth-child(3n+1) td .logoUser,
 #lastStudents tr:nth-child(3n+1) td .logoUser,
-#resultsCourse tr:nth-child(3n+1) td .logoUser{
+#resultsCourse tr:nth-child(3n+1) td .logoUser,
+.gridCourseResult:nth-child(3n+1) div .logoUser{
     background-color: #b9ead8;
     color:#348065;
 }
 
 #results tr:nth-child(4n+1) td .logoUser,
 #lastStudents tr:nth-child(4n+1) td .logoUser,
-#resultsCourse tr:nth-child(4n+1) td .logoUser{
+#resultsCourse tr:nth-child(4n+1) td .logoUser,
+.gridCourseResult:nth-child(4n+1) div .logoUser{
     background-color: #bfe9ff;
     color:#1c6b96;
 }
@@ -1029,6 +1032,38 @@ input[type=number] { -moz-appearance:textfield; }
     font-size: 15px;
 }
 
+
+.infoCourses{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    margin-top: 60px;
+}
+
+.courseInfoCard{
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: 0px 5px 21px -5px #0000003d;
+    border-radius: 15px;
+}
+
+.courseInfoCard h3{
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.gridCourseResult{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    height: 90px;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.41);
+}
+.gridCourseResult > div{
+    line-height: 90px;
+}
 
 /* Menu de widgets */
 

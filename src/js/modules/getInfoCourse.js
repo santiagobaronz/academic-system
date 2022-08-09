@@ -93,6 +93,8 @@ export const getCourseInfo = async (code) => {
     const courseStudentsBox = document.createElement("div")
     courseStudentsBox.className = "courseStudentsBox";
 
+    let students = [], studentsToShow = []
+
     if(courseInfo.students.length != 0){
         const tableCourseDiv = document.createElement("div");
         tableCourseDiv.className = "userTable2";
@@ -120,7 +122,6 @@ export const getCourseInfo = async (code) => {
 
         courseStudents.append(tableCourseDiv);
         const userTable = document.querySelector("#resultsCourse > tbody");
-        let students = [], studentsToShow = []
 
         await fetch("./api/students")
         .then(response => response.json())
@@ -255,5 +256,107 @@ export const getCourseInfo = async (code) => {
             }
           })
     })
+
+
+    // Students
+
+    const noteFilter = document.createElement("div")
+    noteFilter.className = "infoCourses"
+    noteFilter.id = courseInfo.id
+
+    let studentsAllGrades = [], failedStudents = [];
+
+    studentsToShow.forEach(student => {
+
+        for (let i = 0; i < courseInfo.students.length; i++) {
+            if(courseInfo.students[i].studentId  == student.id){
+                studentsAllGrades.push(courseInfo.students[i]);
+                if(courseInfo.students[i].finalNote < 30){
+                    failedStudents.push(courseInfo.students[i])
+                }
+            }
+        }
+    })
+
+    studentsAllGrades.sort((a,b) => a.finalNote - b.finalNote).reverse()
+    failedStudents.sort((a,b) => a.finalNote - b.finalNote).reverse();
+
+    let failedStudentsMsg;
+
+    if(failedStudents.length > 0){
+        failedStudentsMsg = "Estudiantes con nota inferior a 30"
+    }else{
+        failedStudentsMsg = "No hay estudiantes con nota inferior a 30";
+    }
+
+    noteFilter.innerHTML = `
+    <div id='allCourseStudents' class='courseInfoCard'>
+        <h3>Estudiantes ordenados por nota</h3>
+    </div>
+    <div id='allFailedStudents' class='courseInfoCard'>
+        <h3>${failedStudentsMsg}</h3>
+    </div>
+    `
+    const divToAppend = document.querySelector(".courseInfoSection")
+    divToAppend.append(noteFilter);
+
+    const allCourseStudents = document.querySelector("#allCourseStudents");
+    const allFailedStudents = document.querySelector("#allFailedStudents");
+    
+    studentsAllGrades.forEach(studentGrades => {
+
+        let studentResult = []
+
+        for (let i = 0; i < studentsToShow.length; i++) {
+            if(studentGrades.studentId == studentsToShow[i].id){
+                studentResult = studentsToShow[i];
+            }
+        }
+
+        const fullName = `${studentResult.name} ${studentResult.lastName}`;
+        const logoUser = studentResult.name.charAt(0) + "" + studentResult.lastName.charAt(0);
+        const gridElement = document.createElement("div")
+
+        gridElement.className = 'gridCourseResult'
+        gridElement.innerHTML = `
+        <div>
+            <span class='logoUser'>${logoUser}</span>${fullName}
+        </div>
+        <div>
+            <p>${studentGrades.finalNote}</p>
+        </div>`
+        allCourseStudents.append(gridElement);
+
+    });
+
+    failedStudents.forEach(failedStudent => {
+        let studentResult = []
+
+        for (let i = 0; i < studentsToShow.length; i++) {
+            if(failedStudent.studentId == studentsToShow[i].id){
+                studentResult = studentsToShow[i];
+            }
+        }
+
+        const fullName = `${studentResult.name} ${studentResult.lastName}`;
+        const logoUser = studentResult.name.charAt(0) + "" + studentResult.lastName.charAt(0);
+        const gridElement = document.createElement("div")
+
+        gridElement.className = 'gridCourseResult'
+        gridElement.innerHTML = `
+        <div>
+            <span class='logoUser'>${logoUser}</span>${fullName}
+        </div>
+        <div>
+            <p>${failedStudent.finalNote}</p>
+        </div>`
+        allFailedStudents.append(gridElement);
+    });
+
+    const heightOfElement1 = (studentsAllGrades.length * 90) + 140;
+    allCourseStudents.style.height = `${heightOfElement1}px`
+
+    const heightOfElement2 = (failedStudents.length * 90) + 140;
+    allFailedStudents.style.height = `${heightOfElement2}px`
 
 }

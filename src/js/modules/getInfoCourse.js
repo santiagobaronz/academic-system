@@ -1,10 +1,18 @@
 import { deleteStudents } from "./deleteStudents.js";
 import { editCourse } from "./editCourse.js";
 import { enrollStudent } from "./enrollStudent.js";
+import { getAllCourses } from "./getAllCourses.js";
 import { updateGrades } from "./updateGrades.js";
 
 export const getCourseInfo = async (code) => {
-    
+
+    const popUpAlert = (type, message, image) => {
+        Swal.fire(
+            `${type}`,
+            `${message}`,
+            `${image}`
+          );
+    }
 
     const courseInfoBox = document.querySelector("#courseInfo");
     const coursesResult = document.querySelector("#courseResult");
@@ -92,7 +100,7 @@ export const getCourseInfo = async (code) => {
         
         <table id='resultsCourse'>
             <tr class='courseTr'>
-                <th class='adjustWidth' style='--aw: 310px'>Nombre</th>
+                <th class='adjustWidth' style='--aw: 400px'>Nombre</th>
                 <th class='adjustWidth' style='--aw: 100px'>Código</th>
                 <th>Nota 1</th>
                 <th>Nota 2</th>
@@ -225,7 +233,23 @@ export const getCourseInfo = async (code) => {
             denyButtonText: `No eliminar`,
           }).then((result) => {
             if (result.isConfirmed) {
-              alert("Eliminado")
+                fetch("/delete/course", {
+                    method: 'POST',
+                    headers: {'Content-type': 'application/json'},
+                    body: JSON.stringify({courseId: courseInfo.id})
+                });
+
+                popUpAlert("El curso fue eliminado", "El curso fue eliminado y sus estudiantes también", "success"),
+                setTimeout(() => {
+                    console.clear()
+                },1000)
+                coursesResult.style.display = "grid";
+                coursesForm.style.display = "none";
+                courseInfoBox.style.display = "none";
+                coursesSwitch.firstElementChild.innerHTML = "person_add_alt_1";
+                coursesSwitch.lastElementChild.innerHTML = "Agregar curso";
+                getAllCourses();
+
             } else if (result.isDenied) {
               alert("No eliminado")
             }

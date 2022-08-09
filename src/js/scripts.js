@@ -8,6 +8,7 @@ import { pageSelector } from './modules/pagesSelector.js';
 import { saveCourse } from './modules/saveCourse.js';
 import { saveUser } from './modules/saveUser.js';
 import { studentFilter } from './modules/studentFilter.js';
+import { uploadData } from './modules/uploadData.js';
 import { validateCourse } from './modules/validateCourse.js';
 import { validateStudent } from './modules/validateStudent.js';
 
@@ -15,8 +16,14 @@ import { validateStudent } from './modules/validateStudent.js';
 
 window.addEventListener("load", async () => {
 
+    window.addEventListener("click", () => {
 
-    
+        console.clear()
+
+    })
+
+    // Upload data
+    uploadData();
     // Filter options
     courseFilter();
     // Get all Courses

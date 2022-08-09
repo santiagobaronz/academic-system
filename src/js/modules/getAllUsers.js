@@ -106,7 +106,7 @@ export const getAllUsers = async (data, type) => {
                     getAllUsers(),
                     setTimeout(() => {
                         console.clear()
-                    }, 500)
+                    },1000)
                 );
             })
         })

@@ -11,10 +11,10 @@
       "students": [
         {
           "studentId": 1,
-          "grade1": 10,
-          "grade2": 20,
-          "grade3": 30,
-          "grade4": 40,
+          "grade1": "10",
+          "grade2": "20",
+          "grade3": "30",
+          "grade4": "39",
           "finalNote": 24
         },
         {
@@ -48,52 +48,6 @@
           "grade3": 36,
           "grade4": 29,
           "finalNote": 30
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "code": "2022-(C2)",
-      "courseName": "CÁLCULO INTEGRAL",
-      "typeOfCourse": "Teorico",
-      "credits": 3,
-      "teachersName": "Fredy Morales",
-      "creationDate": "9/8/2022 14:57:49",
-      "students": [
-        {
-          "studentId": 6,
-          "grade1": 45,
-          "grade2": 34,
-          "grade3": 12,
-          "finalNote": 31
-        },
-        {
-          "studentId": 7,
-          "grade1": 20,
-          "grade2": 20,
-          "grade3": 29,
-          "finalNote": 23
-        },
-        {
-          "studentId": 8,
-          "grade1": 50,
-          "grade2": 50,
-          "grade3": 48,
-          "finalNote": 49
-        },
-        {
-          "studentId": 9,
-          "grade1": 10,
-          "grade2": 40,
-          "grade3": 37,
-          "finalNote": 29
-        },
-        {
-          "studentId": 10,
-          "grade1": 39,
-          "grade2": 45,
-          "grade3": 29,
-          "finalNote": 38
         }
       ]
     }

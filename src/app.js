@@ -36,22 +36,6 @@ app.post('/upload/data', (req, res) => {
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* This is a route that is listening for a GET request to the root of the server. When it receives a
 request, it will set the content type to HTML and send the index.html file. */
 app.get('/', (req, res) => {
@@ -367,15 +351,6 @@ app.post('/delete/student', (req,res) => {
 
 })
 
-// Cursoooooooooooooooooooooooooooooooooooos 
-
-
-
-
-
-
-
-
 app.post('/edit/course/theoretical', (req,res) => {
     res.setHeader('Content-type', 'application/json');
 
@@ -481,7 +456,6 @@ app.post('/edit/course/theoretical-practical', (req,res) => {
 
     }
 })
-
 
 app.post('/edit/update-grades', (req,res) => {
     res.setHeader('Content-type', 'application/json');
@@ -692,14 +666,6 @@ app.post('/new/course', (req,res) => {
     }
 
 })
-
-
-
-
-
-
-
-
 
 /* This is a way to set the port of the server. If the port is not set, it will use the default port
 80. */

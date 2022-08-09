@@ -644,6 +644,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .courseInfoTitle{
+    position: relative;
     background-color: #4b49ac;
     height: 150px;
     border-radius: 15px;
@@ -941,7 +942,7 @@ input[type=number] { -moz-appearance:textfield; }
     width: 80%;
     height: 40px;
     border-radius: 5px;
-    background-color: var(--green);
+    background-color: var(--orange);
     color: #fff;
     cursor: pointer;
     transition: 0.2s all;
@@ -974,17 +975,47 @@ input[type=number] { -moz-appearance:textfield; }
 .inputGrades{
     width: 50px;
     height: 50px;
-    border-radius: 15px;
+    border-radius: 10px;
     text-align: center;
-    background-color: var(--gray);
-    color: #fff;
+    background-color: var(--gray-lightest);
+    color: var(--black);
+}
+
+.inputFinalNote{
+    width: 70%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--gray-lightest);
+    color: var(--black);
+    text-align: center;
+    line-height: 50px;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .inputGradesDisabled{
     display: none;
 }
 
+.edit-course{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+}
 
+#formEditCourse > input{
+    width: 100%;
+    height: 50px;
+    background: var(--gray-lightest);
+    border-radius: 10px;
+    padding-left: 20px;
+    margin: 10px 0 20px 0;
+    border-right: 18px solid transparent;
+    font-size: 15px;
+}
 
 
 /* Menu de widgets */

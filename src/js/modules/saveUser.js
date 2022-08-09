@@ -15,7 +15,6 @@ export const saveUser = () => {
         const studentAge = document.querySelector("#age").value;
         const studentEmail = document.querySelector("#email").value;
         const studentPhoneNumber = document.querySelector("#phoneNumber").value;
-        
 
         fetch("/new/student", {
             method: 'POST',

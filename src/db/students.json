@@ -5,44 +5,11 @@
       "code": "2022-1",
       "name": "Santiago",
       "lastName": "Baron Zuleta",
-      "age": 18,
+      "age": 66,
       "email": "santiagobazul@hotmail.com",
       "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 07:54:20",
-      "courses": [
-        {
-          "courseId": 1,
-          "courseName": "FÍSICA",
-          "courseType": "Teorico"
-        },
-        {
-          "courseId": 3,
-          "courseName": "ÁLGEBRA LINEAL",
-          "courseType": "Teorico-Practico"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "code": "2022-6",
-      "name": "Andres",
-      "lastName": "Martinez",
-      "age": 18,
-      "email": "santiagobazul@hotmail.com",
-      "phoneNumber": "3203773769",
-      "registrationDate": "4/8/2022 07:54:47",
-      "courses": [
-        {
-          "courseId": 3,
-          "courseName": "ÁLGEBRA LINEAL",
-          "courseType": "Teorico-Practico"
-        },
-        {
-          "courseId": 1,
-          "courseName": "FÍSICA",
-          "courseType": "Teorico"
-        }
-      ]
+      "registrationDate": "8/8/2022 23:42:30",
+      "courses": []
     }
   ]
 }

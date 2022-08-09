@@ -1,6 +1,8 @@
+import { editCourse } from "./editCourse.js";
 import { enrollStudent } from "./enrollStudent.js";
 
 export const getCourseInfo = async (code) => {
+    
 
     const courseInfoBox = document.querySelector("#courseInfo");
     const coursesResult = document.querySelector("#courseResult");
@@ -39,6 +41,7 @@ export const getCourseInfo = async (code) => {
     
     <div class='courseInfoTitle'>
         <h3>${courseInfo.courseName}</h3>
+        <span class="material-icons edit-course" id='editCourseButton'>edit</span>
     </div>
     <div class='courseInfoDetails'>
         <div class='course_Code'>
@@ -84,8 +87,8 @@ export const getCourseInfo = async (code) => {
         
         <table id='resultsCourse'>
             <tr class='courseTr'>
-                <th class='adjustWidth' style='--aw: 370px'>Nombre</th>
-                <th class='adjustWidth' style='--aw: 120px'>Código</th>
+                <th class='adjustWidth' style='--aw: 310px'>Nombre</th>
+                <th class='adjustWidth' style='--aw: 100px'>Código</th>
                 <th>Nota 1</th>
                 <th>Nota 2</th>
                 <th>Nota 3</th>
@@ -124,7 +127,7 @@ export const getCourseInfo = async (code) => {
 
             
             let studentGrades = [];
-            let grade4, styleOfInput;
+            let grade4, styleOfInput, inputType;
 
             for (let i = 0; i < courseInfo.students.length; i++) {
                 if(courseInfo.students[i].studentId  == student.id){
@@ -135,9 +138,11 @@ export const getCourseInfo = async (code) => {
             if(studentGrades.grade4 != undefined){
                 grade4 = studentGrades.grade4
                 styleOfInput = "inputGrades";
+                inputType = "number";
             }else{
-                grade4 = "N.A"
-                styleOfInput = "disabled"
+                grade4 = "N.A";
+                styleOfInput = "disabled";
+                inputType = "text";
             };
 
             const fullName = `${student.name} ${student.lastName}`;
@@ -149,16 +154,18 @@ export const getCourseInfo = async (code) => {
             
             <td><span class='logoUser'>${logoUser}</span>${fullName}</td>
             <td>${student.code}</td>
-            <td><input type='number' value='${studentGrades.grade1}' placeholder='${studentGrades.grade1}' class='inputGrades' min="0" max="50"></td>
-            <td><input type='number' value='${studentGrades.grade2}' placeholder='${studentGrades.grade2}' class='inputGrades' min="0" max="50"></td>
-            <td><input type='number' value='${studentGrades.grade3}' placeholder='${studentGrades.grade3}' class='inputGrades' min="0" max="50"></td>
-            <td><input type='number' value='${grade4}' ${styleOfInput} placeholder='${grade4}' class='inputGrades' min="0" max="50"></td>
-            <th></th>
-            <th><button id='${student.id}' class='saveGradesButton'>Guardar</button></th>
-            <td><button id='${student.id}' class='deleteUserButton'>Eliminar</button></td>
+            <td><input type='number' value='${studentGrades.grade1}' placeholder='${studentGrades.grade1}' class='inputGrades input${student.id}' min="0" max="50"></td>
+            <td><input type='number' value='${studentGrades.grade2}' placeholder='${studentGrades.grade2}' class='inputGrades input${student.id}' min="0" max="50"></td>
+            <td><input type='number' value='${studentGrades.grade3}' placeholder='${studentGrades.grade3}' class='inputGrades input${student.id}' min="0" max="50"></td>
+            <td><input type='${inputType}' value='${grade4}' ${styleOfInput} placeholder='${grade4}' class='inputGrades input${student.id}' min="0" max="50"></td>
+            <th><p class='inputFinalNote'>${studentGrades.finalNote}</p></th>
+            <th><button id='${student.id}' class='saveGradesButton' onclick='updateGrades(${student.id},"${courseInfo.id}", "${courseInfo.typeOfCourse}", "${courseInfo.code}")'>Guardar</button></th>
+            <td><button id='${student.id}' class='deleteUserButton' onclick='deleteStudents("${student.id}",${courseInfo.id})'>Eliminar</button></td>
             `;
     
             userTable.appendChild(rowElement);
+
+
         });
 
 
@@ -171,14 +178,19 @@ export const getCourseInfo = async (code) => {
         `
     }
 
+
     courseStudents.append(courseStudentsBox);
 
     const addStudentCourse = document.querySelector("#addStudentCourse");
-
     if(addStudentCourse != undefined){
         addStudentCourse.addEventListener("click", () => {
             enrollStudent(courseInfo);
         })
     }
+
+    const editCourseButton = document.querySelector("#editCourseButton")
+    editCourseButton.addEventListener("click", () => {
+        editCourse(courseInfo)
+    })
 
 }

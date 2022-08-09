@@ -3,25 +3,12 @@
     {
       "id": 1,
       "code": "2022-(C1)",
-      "courseName": "FÍSICA",
+      "courseName": "POO",
       "typeOfCourse": "Teorico",
-      "credits": "1",
-      "teachersName": "Santiago",
+      "credits": "5",
+      "teachersName": "Alex",
       "creationDate": "5/8/2022 18:03:35",
-      "students": [
-        {
-          "studentId": "1",
-          "grade1": "50",
-          "grade2": "20",
-          "grade3": "10"
-        },
-        {
-          "studentId": "6",
-          "grade1": "50",
-          "grade2": "50",
-          "grade3": "50"
-        }
-      ]
+      "students": []
     },
     {
       "id": 3,
@@ -29,24 +16,9 @@
       "courseName": "ÁLGEBRA LINEAL",
       "typeOfCourse": "Teorico-Practico",
       "credits": "3",
-      "teachersName": "Santiago Baron",
+      "teachersName": "Pacheco",
       "creationDate": "5/8/2022 18:04:22",
-      "students": [
-        {
-          "studentId": "6",
-          "grade1": "50",
-          "grade2": "40",
-          "grade3": "30",
-          "grade4": "20"
-        },
-        {
-          "studentId": "1",
-          "grade1": "10",
-          "grade2": "20",
-          "grade3": "30",
-          "grade4": "40"
-        }
-      ]
+      "students": []
     }
   ]
 }

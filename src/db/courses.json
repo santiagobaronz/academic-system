@@ -5,48 +5,48 @@
       "code": "2022-(C1)",
       "courseName": "PROGRAMACIÓN ORIENTADA A OBJETOS",
       "typeOfCourse": "Teorico-Practico",
-      "credits": "3",
+      "credits": 3,
       "teachersName": "Alberto Murcia",
-      "creationDate": "9/8/2022 11:17:10",
+      "creationDate": "9/8/2022 14:57:30",
       "students": [
         {
-          "studentId": "1",
-          "grade1": "50",
-          "grade2": "40",
-          "grade3": "46",
-          "grade4": "42",
-          "finalNote": 45
+          "studentId": 1,
+          "grade1": 10,
+          "grade2": 20,
+          "grade3": 30,
+          "grade4": 40,
+          "finalNote": 24
         },
         {
-          "studentId": "2",
-          "grade1": "39",
-          "grade2": "31",
-          "grade3": "40",
-          "grade4": "42",
-          "finalNote": 38
+          "studentId": 2,
+          "grade1": 20,
+          "grade2": 30,
+          "grade3": 40,
+          "grade4": 50,
+          "finalNote": 34
         },
         {
-          "studentId": "3",
-          "grade1": "30",
-          "grade2": "50",
-          "grade3": "37",
-          "grade4": "43",
-          "finalNote": 40
-        },
-        {
-          "studentId": "4",
-          "grade1": "45",
-          "grade2": "30",
-          "grade3": "48",
-          "grade4": "20",
+          "studentId": 3,
+          "grade1": 30,
+          "grade2": 40,
+          "grade3": 20,
+          "grade4": 50,
           "finalNote": 36
         },
         {
-          "studentId": "5",
-          "grade1": "10",
-          "grade2": "45",
-          "grade3": "37",
-          "grade4": "34",
+          "studentId": 4,
+          "grade1": 40,
+          "grade2": 50,
+          "grade3": 50,
+          "grade4": 50,
+          "finalNote": 47
+        },
+        {
+          "studentId": 5,
+          "grade1": 10,
+          "grade2": 50,
+          "grade3": 36,
+          "grade4": 29,
           "finalNote": 30
         }
       ]
@@ -56,43 +56,29 @@
       "code": "2022-(C2)",
       "courseName": "CÁLCULO INTEGRAL",
       "typeOfCourse": "Teorico",
-      "credits": "3",
+      "credits": 3,
       "teachersName": "Fredy Morales",
-      "creationDate": "9/8/2022 11:17:32",
+      "creationDate": "9/8/2022 14:57:49",
       "students": [
         {
-          "studentId": "6",
-          "grade1": "43",
-          "grade2": "25",
-          "grade3": "39",
-          "finalNote": 36
+          "studentId": 8,
+          "grade1": 50,
+          "grade2": 50,
+          "grade3": 48,
+          "finalNote": 49
         },
         {
-          "studentId": "7",
-          "grade1": "38",
-          "grade2": "40",
-          "grade3": "39",
-          "finalNote": 39
+          "studentId": 9,
+          "grade1": 10,
+          "grade2": 40,
+          "grade3": 37,
+          "finalNote": 29
         },
         {
-          "studentId": "8",
-          "grade1": "50",
-          "grade2": "45",
-          "grade3": "50",
-          "finalNote": 48
-        },
-        {
-          "studentId": "9",
-          "grade1": "25",
-          "grade2": "30",
-          "grade3": "35",
-          "finalNote": 30
-        },
-        {
-          "studentId": "10",
-          "grade1": "39",
-          "grade2": "35",
-          "grade3": "40",
+          "studentId": 10,
+          "grade1": 39,
+          "grade2": 45,
+          "grade3": 29,
           "finalNote": 38
         }
       ]

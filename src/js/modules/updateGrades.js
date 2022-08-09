@@ -1,6 +1,6 @@
 import { getCourseInfo } from "./getInfoCourse.js";
 
-export const updateGrades = (studentId, courseId, typeOfCourse, courseCode) => {
+export const updateGrades = (studentId, courseId, typeOfCourse, courseCode, credits) => {
 
     const errorAlert = (type, message) => {
         Swal.fire(
@@ -53,6 +53,7 @@ export const updateGrades = (studentId, courseId, typeOfCourse, courseCode) => {
                                             grade2: grade2,
                                             grade3: grade3,
                                             grade4: "NA",
+                                            credits: credits,
                                             finalNote: finalNote})
                 }).then(
                     successAlert(),
@@ -81,6 +82,7 @@ export const updateGrades = (studentId, courseId, typeOfCourse, courseCode) => {
                                             grade2: grade2,
                                             grade3: grade3,
                                             grade4: grade4,
+                                            credits: credits,
                                             finalNote: finalNote})
                 }).then(
                     successAlert(),

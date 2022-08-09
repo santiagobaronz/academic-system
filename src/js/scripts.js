@@ -4,6 +4,7 @@ import {getDate} from './modules/date.js';
 import { getAllCourses } from './modules/getAllCourses.js';
 import { getAllUsers } from './modules/getAllUsers.js';
 import { getLastStudents } from './modules/getLastStudents.js';
+import { mainMetrics } from './modules/metrics.js';
 import { pageSelector } from './modules/pagesSelector.js';
 import { saveCourse } from './modules/saveCourse.js';
 import { saveUser } from './modules/saveUser.js';
@@ -16,12 +17,7 @@ import { validateStudent } from './modules/validateStudent.js';
 
 window.addEventListener("load", async () => {
 
-    window.addEventListener("click", () => {
-
-        console.clear()
-
-    })
-
+    mainMetrics();
     // Upload data
     uploadData();
     // Filter options
@@ -46,5 +42,9 @@ window.addEventListener("load", async () => {
     pageSelector();
     // Date module
     getDate();
+
+    window.addEventListener("click", () => {
+        console.clear()
+    })
     
 })

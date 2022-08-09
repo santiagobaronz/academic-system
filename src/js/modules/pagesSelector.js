@@ -12,18 +12,16 @@ export const pageSelector = () => {
     const coursesButton = document.querySelector("#coursesButton");
     const studentsButton = document.querySelector("#studentsButton");
     const metricsButton = document.querySelector("#metricsButton");
-    const documentsButton = document.querySelector("#documentsButton");
     const buttonPages = [dashboardButton, coursesButton, studentsButton,
-        metricsButton, documentsButton];
+        metricsButton];
 
     const dashboardPage = document.querySelector("#dashboardPage");
     const coursesPage = document.querySelector("#coursesPage");
     const studentsPage = document.querySelector("#studentsPage");
     const metricsPage = document.querySelector("#metricsPage");
-    const documentsPage = document.querySelector("#documentsPage");
 
     const appPages = [dashboardPage, coursesPage, studentsPage,
-                    metricsPage, documentsPage];
+                    metricsPage];
 
     /**
      * It removes the display property of all the elements in the appPages array except the one that

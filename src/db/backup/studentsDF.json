@@ -1,154 +1,174 @@
 {
-    "students": [
-      {
-        "id": 1,
-        "code": "2022-1",
-        "name": "Santiago",
-        "lastName": "Baron Zuleta",
-        "age": 19,
-        "email": "santiagobazul@hotmail.com",
-        "phoneNumber": "3203773769",
-        "registrationDate": "9/8/2022 11:06:42",
-        "courses": [
-          {
-            "courseId": 1
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "code": "2022-2",
-        "name": "Andres Felipe",
-        "lastName": "Vanegas Bogota",
-        "age": 18,
-        "email": "andresvanegas@gmail.com",
-        "phoneNumber": "123456789",
-        "registrationDate": "9/8/2022 11:07:09",
-        "courses": [
-          {
-            "courseId": 1
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "code": "2022-3",
-        "name": "Javier Luzcano",
-        "lastName": "Córdoba Monsalve",
-        "age": 18,
-        "email": "javiercordoba@gmail.com",
-        "phoneNumber": "987654321",
-        "registrationDate": "9/8/2022 11:07:45",
-        "courses": [
-          {
-            "courseId": 1
-          }
-        ]
-      },
-      {
-        "id": 4,
-        "code": "2022-4",
-        "name": "Gustavo Francisco",
-        "lastName": "Petro Urrego",
-        "age": 66,
-        "email": "gustavopetro@gmail.com",
-        "phoneNumber": "987612345",
-        "registrationDate": "9/8/2022 11:08:23",
-        "courses": [
-          {
-            "courseId": 1
-          }
-        ]
-      },
-      {
-        "id": 5,
-        "code": "2022-5",
-        "name": "Donald John",
-        "lastName": "Trump",
-        "age": 76,
-        "email": "donaldtrump@gmail.com",
-        "phoneNumber": "192837465",
-        "registrationDate": "9/8/2022 11:09:19",
-        "courses": [
-          {
-            "courseId": 1
-          }
-        ]
-      },
-      {
-        "id": 6,
-        "code": "2022-6",
-        "name": "Francia Helena",
-        "lastName": "Márquez Mina",
-        "age": 62,
-        "email": "franciamarquez62@gmail.com",
-        "phoneNumber": "463728195",
-        "registrationDate": "9/8/2022 11:11:05",
-        "courses": [
-          {
-            "courseId": 2
-          }
-        ]
-      },
-      {
-        "id": 7,
-        "code": "2022-7",
-        "name": "Claudia Tatiana",
-        "lastName": "Ospina Pérez",
-        "age": 19,
-        "email": "tatianaospina@gmail.com",
-        "phoneNumber": "19181726345",
-        "registrationDate": "9/8/2022 11:12:03",
-        "courses": [
-          {
-            "courseId": 2
-          }
-        ]
-      },
-      {
-        "id": 8,
-        "code": "2022-8",
-        "name": "Roger Anderson",
-        "lastName": "Hurtado Mojica",
-        "age": 22,
-        "email": "rogerhurtado@gmail.com",
-        "phoneNumber": "919293948576",
-        "registrationDate": "9/8/2022 11:13:27",
-        "courses": [
-          {
-            "courseId": 2
-          }
-        ]
-      },
-      {
-        "id": 9,
-        "code": "2022-9",
-        "name": "Juan Sebastian",
-        "lastName": "Yepes Solano",
-        "age": 19,
-        "email": "sebastianyepes@gmail.com",
-        "phoneNumber": "105463728",
-        "registrationDate": "9/8/2022 11:14:28",
-        "courses": [
-          {
-            "courseId": 2
-          }
-        ]
-      },
-      {
-        "id": 10,
-        "code": "2022-10",
-        "name": "María Camila",
-        "lastName": "Altozano Fernandez",
-        "age": 21,
-        "email": "camilaltozano@gmail.com",
-        "phoneNumber": "1526374859",
-        "registrationDate": "9/8/2022 11:15:17",
-        "courses": [
-          {
-            "courseId": 2
-          }
-        ]
-      }
-    ]
-  }
+  "students": [
+    {
+      "id": 1,
+      "code": "2022-1",
+      "name": "Santiago",
+      "lastName": "Baron Zuleta",
+      "age": 18,
+      "email": "santiagobazul@hotmail.com",
+      "phoneNumber": "3203773769",
+      "registrationDate": "9/8/2022 14:52:06",
+      "courses": [
+        {
+          "courseId": 1,
+          "finalNote": 24,
+          "credits": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "code": "2022-2",
+      "name": "Andres Felipe",
+      "lastName": "Vanegas Bogota",
+      "age": 18,
+      "email": "andresvanegas@gmail.com",
+      "phoneNumber": "123456789",
+      "registrationDate": "9/8/2022 14:52:38",
+      "courses": [
+        {
+          "courseId": 1,
+          "finalNote": 34,
+          "credits": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "code": "2022-3",
+      "name": "Javier Luzcano",
+      "lastName": "Córdoba Monsalve",
+      "age": 18,
+      "email": "javiercordoba@gmail.com",
+      "phoneNumber": "987654321",
+      "registrationDate": "9/8/2022 14:53:01",
+      "courses": [
+        {
+          "courseId": 1,
+          "finalNote": 36,
+          "credits": 3
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "code": "2022-4",
+      "name": "Gustavo Francisco",
+      "lastName": "Petro Urrego",
+      "age": 66,
+      "email": "gustavopetro@gmail.com",
+      "phoneNumber": "987612345",
+      "registrationDate": "9/8/2022 14:53:21",
+      "courses": [
+        {
+          "courseId": 1,
+          "finalNote": 47,
+          "credits": 3
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "code": "2022-5",
+      "name": "Donald John",
+      "lastName": "Trump",
+      "age": 76,
+      "email": "donaldtrump@gmail.com",
+      "phoneNumber": "192837465",
+      "registrationDate": "9/8/2022 14:53:41",
+      "courses": [
+        {
+          "courseId": 1,
+          "finalNote": 30,
+          "credits": 3
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "code": "2022-6",
+      "name": "Francia Helena",
+      "lastName": "Márquez Mina",
+      "age": 66,
+      "email": "franciamarquez62@gmail.com",
+      "phoneNumber": "3333333333",
+      "registrationDate": "9/8/2022 14:54:00",
+      "courses": [
+        {
+          "courseId": 2,
+          "finalNote": 31,
+          "credits": 3
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "code": "2022-7",
+      "name": "Claudia Tatiana",
+      "lastName": "Ospina Pérez",
+      "age": 16,
+      "email": "tatianaospina@gmail.com",
+      "phoneNumber": "5555555555",
+      "registrationDate": "9/8/2022 14:54:21",
+      "courses": [
+        {
+          "courseId": 2,
+          "finalNote": 23,
+          "credits": 3
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "code": "2022-8",
+      "name": "Roger Anderson",
+      "lastName": "Hurtado Mojica",
+      "age": 18,
+      "email": "rogerhurtado@gmail.com",
+      "phoneNumber": "5555555555",
+      "registrationDate": "9/8/2022 14:55:05",
+      "courses": [
+        {
+          "courseId": 2,
+          "finalNote": 49,
+          "credits": 3
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "code": "2022-9",
+      "name": "Juan Sebastian",
+      "lastName": "Yepes Solano",
+      "age": 23,
+      "email": "sebastianyepes@gmail.com",
+      "phoneNumber": "7474747474",
+      "registrationDate": "9/8/2022 14:55:25",
+      "courses": [
+        {
+          "courseId": 2,
+          "finalNote": 29,
+          "credits": 3
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "code": "2022-10",
+      "name": "María Camila",
+      "lastName": "Altozano Fernandez",
+      "age": 21,
+      "email": "camilaltozano@gmail.com",
+      "phoneNumber": "1526374859",
+      "registrationDate": "9/8/2022 14:55:52",
+      "courses": [
+        {
+          "courseId": 2,
+          "finalNote": 38,
+          "credits": 3
+        }
+      ]
+    }
+  ]
+}

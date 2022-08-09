@@ -136,7 +136,7 @@ export const enrollStudent = (course) => {
                         method: 'POST',
                         headers: {'Content-type': 'application/json'},
                         body: JSON.stringify({courseName: course.courseName, courseId: course.id ,id: idStudent,
-                                             grade1: grade1, grade2: grade2, grade3: grade3})
+                                             credits: course.credits, grade1: grade1, grade2: grade2, grade3: grade3})
                     }).then(
                         popUpAlert("El estudiante fue agregado", "El estudiante fue agregado al curso", "success"),
                         getCourseInfo(course.code),
@@ -163,7 +163,7 @@ export const enrollStudent = (course) => {
                                 method: 'POST',
                                 headers: {'Content-type': 'application/json'},
                                 body: JSON.stringify({courseName: course.courseName, courseId: course.id ,id: idStudent,
-                                    grade1: grade1, grade2: grade2, grade3: grade3, grade4:grade4})
+                                    credits: course.credits, grade1: grade1, grade2: grade2, grade3: grade3, grade4:grade4})
                             }).then(
                                 popUpAlert("El estudiante fue agregado", "El estudiante fue agregado al curso", "success"),
                                 getCourseInfo(course.code),

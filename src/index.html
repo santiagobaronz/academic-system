@@ -49,10 +49,6 @@
                         <span>Estadísticas</span>
                         <i class="material-icons-round arrow-menu">keyboard_arrow_right</i>
                     </li>
-                    <li class="nav-item" id="documentsButton">
-                        <i class="material-icons-outlined icon-menu">article</i>
-                        <span>Documentación</span>
-                    </li>
                     <li class="nav-item" id="uploadButton">
                         <i class="material-icons-round icon-menu">upload</i>
                         <span>Subir datos</span>
@@ -248,6 +244,7 @@
                                     <option value="code">Código del estudiante</option>
                                     <option value="email">Correo del estudiante</option>
                                     <option value="phone">Teléfono del estudiante</option>
+                                    <option value="no-enrolled">Estudiantes no registrados</option>
                                 </select>
     
                                 <button id="filterStudentButton">Buscar</button>
@@ -306,10 +303,9 @@
                     </div>
 
                     <div class="metrics" id="metricsPage" style="display:none;">
-
-                    </div>
-                    <div class="documents" id="documentsPage" style="display:none;">
-
+                        <h2>Estadísticas</h2>
+                        <div class="main-metrics">
+                        </div>
                     </div>
 
 

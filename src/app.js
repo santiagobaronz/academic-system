@@ -67,6 +67,24 @@ app.get('/api/students', (req, res) => {
     res.send(file);
 });
 
+app.get('/api/students/check/:noEnrolled', (req, res) => {
+    let file = fs.readFileSync('./src/db/students.json', 'utf-8');
+    const json = JSON.parse(file);
+
+    
+    let studentsArray = []
+    const students = json.students;
+
+    for (let i = 0; i < json.students.length; i++) {
+        if(json.students[i].courses.length == 0){
+            studentsArray.push(json.students[i]);
+        }
+    }
+
+    res.send(studentsArray);
+
+});
+
 
 app.get('/api/students/name/:name', (req, res) => {
     let file = fs.readFileSync('./src/db/students.json', 'utf-8');
@@ -331,8 +349,6 @@ app.post('/delete/student', (req,res) => {
     if(indexArray != -1){
         const courseToDelete = jsonStudents.students[indexArray].courses;
 
-        console.log(courseToDelete);
-
         courseToDelete.forEach(course => {
             const courseId = course.courseId
 
@@ -369,11 +385,12 @@ app.post('/edit/course/theoretical', (req,res) => {
     let fileStudents = fs.readFileSync('./src/db/students.json', 'utf-8');
     const jsonStudents = JSON.parse(fileStudents);
 
-    const courseId = req.body.courseId;
-    const studentId = req.body.id;
+    const courseId = parseInt(req.body.courseId);
+    const studentId = parseInt(req.body.id);
     const grade1 = req.body.grade1;
     const grade2 = req.body.grade2;
     const grade3 = req.body.grade3;
+    const credits = parseInt(req.body.credits);
     let finalNote = (grade1*0.35) + (grade2*0.35) + (grade3*0.30);
     finalNote = Math.round(finalNote);
 
@@ -393,7 +410,9 @@ app.post('/edit/course/theoretical', (req,res) => {
         }
     
         const course_Students = {
-            courseId: courseId
+            courseId: courseId,
+            finalNote: finalNote,
+            credits: credits
         }
     
         const index = (element) => element.id == studentId; 
@@ -417,13 +436,13 @@ app.post('/edit/course/theoretical-practical', (req,res) => {
     let fileStudents = fs.readFileSync('./src/db/students.json', 'utf-8');
     const jsonStudents = JSON.parse(fileStudents);
 
-    const courseName = req.body.courseName;
-    const courseId = req.body.courseId;
-    const studentId = req.body.id;
+    const courseId = parseInt(req.body.courseId);
+    const studentId = parseInt(req.body.id);
     const grade1 = req.body.grade1;
     const grade2 = req.body.grade2;
     const grade3 = req.body.grade3;
     const grade4 = req.body.grade4;
+    const credits = parseInt(req.body.credits);
     let finalNote = (grade1*0.30) + (grade2*0.25) + (grade3*0.20) + (grade4*0.25);
     finalNote = Math.round(finalNote);
 
@@ -445,7 +464,9 @@ app.post('/edit/course/theoretical-practical', (req,res) => {
         }
     
         const course_Students = {
-            courseId: courseId
+            courseId: courseId,
+            finalNote: finalNote,
+            credits: credits
         }
     
         const index = (element) => element.id == studentId; 
@@ -468,12 +489,16 @@ app.post('/edit/update-grades', (req,res) => {
     let fileCourses = fs.readFileSync('./src/db/courses.json', 'utf-8');
     const jsonCourses = JSON.parse(fileCourses);
 
-    const courseId = req.body.courseId;
-    const studentId = req.body.studentId;
+    let fileStudents = fs.readFileSync('./src/db/students.json', 'utf-8');
+    const jsonStudents = JSON.parse(fileStudents);
+
+    const courseId = parseInt(req.body.courseId);
+    const studentId = parseInt(req.body.studentId);
     const grade1 = req.body.grade1;
     const grade2 = req.body.grade2;
     const grade3 = req.body.grade3;
     const grade4 = req.body.grade4;
+    const credits = parseInt(req.body.credits);
     let finalNote = req.body.finalNote;
     finalNote = Math.round(finalNote);
 
@@ -498,13 +523,27 @@ app.post('/edit/update-grades', (req,res) => {
         }
     }
 
+    const course_Students = {
+        courseId: courseId,
+        finalNote: finalNote,
+        credits: credits
+    }
+
     const index = (element) => element.id == courseId;
     const index2 = (element) => element.studentId == studentId;
     const indexArray1 = jsonCourses.courses.findIndex(index);
     const indexArray2 = jsonCourses.courses[indexArray1].students.findIndex(index2);
-
     jsonCourses.courses[indexArray1].students[indexArray2] = grades_Courses;
     fileCourses = fs.writeFileSync('./src/db/courses.json', JSON.stringify(jsonCourses,null,2));
+
+    const indexUpdate = (element) => element.id == studentId;
+    const indexArrayUpdate = jsonStudents.students.findIndex(indexUpdate);
+    const indexUpdate2 = (element) => element.courseId == courseId;
+    const indexArrayUpdate2 = jsonStudents.students[indexArrayUpdate].courses.findIndex(indexUpdate2)
+    jsonStudents.students[indexArrayUpdate].courses[indexArrayUpdate2] = course_Students
+    fileStudents = fs.writeFileSync('./src/db/students.json', JSON.stringify(jsonStudents,null,2));
+
+
 })
 
 app.post('/delete/courseStudent', (req,res) => {
@@ -517,11 +556,8 @@ app.post('/delete/courseStudent', (req,res) => {
     const jsonStudents = JSON.parse(fileStudents);
 
     const courseId = parseInt(req.body.courseId);
-    const studentId = req.body.studentId;
+    const studentId = parseInt(req.body.studentId);
 
-    console.log(courseId, studentId);
-
-  
     const index = (element) => element.id == studentId;
     const indexArray1 = jsonStudents.students.findIndex(index);
     const newCoursesArray = jsonStudents.students[indexArray1].courses.filter((item) => item.courseId !== courseId);
@@ -542,19 +578,35 @@ app.post('/edit/course', (req,res) => {
     let fileCourses = fs.readFileSync('./src/db/courses.json', 'utf-8');
     const jsonCourses = JSON.parse(fileCourses);
 
-    const courseId = req.body.courseId;
+    let fileStudents = fs.readFileSync('./src/db/students.json', 'utf-8');
+    const jsonStudents = JSON.parse(fileStudents);
+
+    const courseId = parseInt(req.body.courseId);
     const newName = req.body.newName;
-    const newCredits = req.body.newCredits;
+    const newCredits = parseInt(req.body.newCredits);
     const newTeacher = req.body.newTeacher;
   
 
     const index = (element) => element.id == courseId;
     const indexArray = jsonCourses.courses.findIndex(index);
-    
     jsonCourses.courses[indexArray].courseName = newName;
     jsonCourses.courses[indexArray].credits = newCredits;
     jsonCourses.courses[indexArray].teachersName = newTeacher;
     fileCourses = fs.writeFileSync('./src/db/courses.json', JSON.stringify(jsonCourses,null,2));
+
+    let studentsArray = jsonStudents.students;
+
+    console.log(typeof courseId);
+
+    studentsArray.forEach((student, i) => {
+        const index = (element) => element.courseId == courseId;
+        const indexArray = student.courses.findIndex(index);
+        if(indexArray != -1){
+            jsonStudents.students[i].courses[indexArray].credits = newCredits
+            fileStudents = fs.writeFileSync('./src/db/students.json', JSON.stringify(jsonStudents,null,2));
+        }
+    })
+    
 
 })
 
@@ -612,7 +664,7 @@ app.post('/new/course', (req,res) => {
 
     const courseName = req.body.CourseName;
     const courseType = req.body.selectCourse;
-    const courseCredits = req.body.credits;
+    const courseCredits = parseInt(req.body.credits);
     const teacherName = req.body.teacherName;
     const saveDate =  new Date().toLocaleString();
     const idToSave = getLastId();
@@ -648,14 +700,6 @@ app.post('/new/course', (req,res) => {
 
 
 
-/*app.delete('/api/students/:id', (req, res) => {
-    const student = students.find(c => c.id === parseInt(req.params.id));
-    if(!student) return res.status(404).send('Estudiante no encontrado');
-    
-    const index = students.indexOf(student);
-    students.splice(index,1);
-    res.send(student);
-})*/
 
 /* This is a way to set the port of the server. If the port is not set, it will use the default port
 80. */

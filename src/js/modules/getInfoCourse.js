@@ -173,7 +173,7 @@ export const getCourseInfo = async (code) => {
             <td><input type='number' value='${studentGrades.grade3}' placeholder='${studentGrades.grade3}' class='inputGrades input${student.id}' min="0" max="50"></td>
             <td><input type='${inputType}' value='${grade4}' ${styleOfInput} placeholder='${grade4}' class='inputGrades input${student.id}' min="0" max="50"></td>
             <th><p class='inputFinalNote'>${studentGrades.finalNote}</p></th>
-            <th><button id='${student.id},${courseInfo.id},${courseInfo.typeOfCourse},${courseInfo.code}' class='saveGradesButton'>Guardar</button></th>
+            <th><button id='${student.id},${courseInfo.id},${courseInfo.typeOfCourse},${courseInfo.code},${courseInfo.credits}' class='saveGradesButton'>Guardar</button></th>
             <td><button id='${student.id},${courseInfo.id},${courseInfo.code}' class='deleteUserButton'>Eliminar</button></td>
             `;
     
@@ -187,7 +187,7 @@ export const getCourseInfo = async (code) => {
             element.addEventListener("click", () => {
                 const parametersArray = element.id;
                 const parametersToSend = parametersArray.split(",")
-                updateGrades(parametersToSend[0], parametersToSend[1], parametersToSend[2],parametersToSend[3])
+                updateGrades(parametersToSend[0], parametersToSend[1], parametersToSend[2],parametersToSend[3],parametersToSend[4])
             })
         })
 

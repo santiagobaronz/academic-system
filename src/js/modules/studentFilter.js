@@ -16,6 +16,9 @@ export const studentFilter = () => {
         const selectorInput = document.querySelector("#selectorStudentInput").value;
 
         (filterInput == "" || selectorInput == "nothing") ? getAllUsers() : getAllUsers(filterInput, selectorInput);
+        if(filterInput == "" && selectorInput == "no-enrolled"){
+            getAllUsers("noEnrolled", "check")
+        }
 
     })
 

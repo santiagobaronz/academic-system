@@ -33,9 +33,18 @@ export const getAllUsers = async (data, type) => {
     .then(response => response.json())
     .then(data => {
         
-        fetchRequest == "./api/students" ? studentsArray = data.students : studentsArray.push(data);
+        if(fetchRequest == "./api/students"){
+            studentsArray = data.students
+        }else if(fetchRequest == "./api/students/check/noEnrolled"){
+            studentsArray = data;
+        }else{
+            studentsArray.push(data)
+        };
 
     })
+
+    console.log(studentsArray);
+    
 
     /* Creating a div element and then it is selecting the element with the id studentsResult. */
     const studentsResult = document.querySelector("#studentsResult");
@@ -44,17 +53,18 @@ export const getAllUsers = async (data, type) => {
     /* Checking if the studentsArray variable is not equal to an empty array, if it is not, it is
     creating a table and then it is appending the table to the studentsResult element. If it is
     equal to an empty array, it is appending a paragraph to the studentsResult element. */
-    if(studentsArray != []){
+    if(studentsArray.length > 0){
 
         tableDiv.className = "userTable";
         tableDiv.innerHTML = `
         
         <table id='results'>
             <tr class='userTr'>
-                <th class='adjustWidth' style='--aw: 370px'>Nombre</th>
-                <th class='adjustWidth' style='--aw: 150px'>Código</th>
-                <th>Correo electrónico:</th>
-                <th>Cursos inscritos</th>
+                <th class='adjustWidth' style='--aw: 390px'>Nombre</th>
+                <th class='adjustWidth' style='--aw: 110px'>Código</th>
+                <th class='adjustWidth' style='--aw: 250px'>Correo electrónico:</th>
+                <th>Cursos</th>
+                <th>Promedio</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -63,13 +73,29 @@ export const getAllUsers = async (data, type) => {
     
         studentsResult.append(tableDiv);
         const userTable = document.querySelector("#results > tbody");
+
     
         /* Creating a table row for each student in the studentsArray variable. */
         studentsArray.forEach(student => {
-    
+
+            let finalAverage = 0, totalCredits = 0;
+
+            for (let i = 0; i < student.courses.length; i++) {
+                const element = student.courses[i];
+                finalAverage = finalAverage + (element.finalNote * element.credits)
+                totalCredits = totalCredits + (element.credits);
+            }
+
+            finalAverage = finalAverage/totalCredits;
+            finalAverage = finalAverage.toFixed(2);
+
+            if(finalAverage == "NaN"){
+                finalAverage = "Sin nota";
+            }
+;    
             const fullName = `${student.name} ${student.lastName}`;
             const logoUser = student.name.charAt(0) + "" + student.lastName.charAt(0);
-            const numOfCourses = student.courses.length == 0 ? "No hay cursos inscritos" : `${student.courses.length} cursos inscritos`;
+            const numOfCourses = student.courses.length == 0 ? "Sin cursos" : `${student.courses.length} cursos`;
     
             const rowElement = document.createElement("tr");
             rowElement.className = "userRow"
@@ -79,6 +105,7 @@ export const getAllUsers = async (data, type) => {
             <td>${student.code}</td>
             <td>${student.email}</td>
             <td>${numOfCourses}</td>
+            <td>${finalAverage}</td>
             <td><button id='${student.code}' class='editUserButton' >Editar</button></td>
             <td><button id='${student.id}' class='deleteUserButton' >Eliminar</button></td>
             `;

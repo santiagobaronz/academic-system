@@ -1,3 +1,5 @@
+import { getAllCourses } from "./getAllCourses.js";
+
 export const saveCourse = () => {
     const createCourseButton = document.querySelector("#createCoursesButton");
 
@@ -15,7 +17,15 @@ export const saveCourse = () => {
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({CourseName: courseName, selectCourse: TypeOfCourse,
                                 credits: courseCredits, teacherName: teacherName})
-        });
+        }).then(
+
+            Swal.fire(
+                'Curso creado con éxito',
+                'El curso ha sido guardado',
+                'success'
+              )
+
+        );
 
 
         const coursesResults = document.querySelector("#courseResult");
@@ -26,13 +36,6 @@ export const saveCourse = () => {
         coursesForm.style.display = "none";
         coursesSwitch.firstElementChild.innerHTML = "person_add_alt_1";
         coursesSwitch.lastElementChild.innerHTML = "Crear curso";
- 
-        Swal.fire(
-            'Curso creado con éxito',
-            'El curso ha sido guardado',
-            'success'
-          );
-
 
         document.getElementById("formCreateCourses").reset();
         const nameVerification = document.querySelector("#name-course-verification");
@@ -46,6 +49,8 @@ export const saveCourse = () => {
         teacherVerification.style.display = "none";
         createCourseButton.disabled = true;
         createCourseButton.style.backgroundColor = "#ccc";
+
+        getAllCourses();
 
 
         setTimeout(() => {

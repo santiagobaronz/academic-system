@@ -129,6 +129,11 @@ app.post('/new/student', (req,res) => {
     const saveDate =  new Date().toLocaleString();
     const idToSave = getLastId();
 
+    const index = (element) => element.email == email;
+    const checkArray = json.students.some(index);
+
+    if(!checkArray){
+
     const student = {
         id: idToSave,
         code: `2022-${idToSave}`,
@@ -143,6 +148,9 @@ app.post('/new/student', (req,res) => {
 
     json.students.push(student);
     file = fs.writeFileSync('./src/db/students.json', JSON.stringify(json,null,2));
+
+    }
+
 })
 
 
@@ -443,19 +451,28 @@ app.post('/new/course', (req,res) => {
     const saveDate =  new Date().toLocaleString();
     const idToSave = getLastId();
 
-    const course = {
-        id: idToSave,
-        code: `2022-(C${idToSave})`,
-        courseName: courseName.trim(),
-        typeOfCourse: courseType.trim(),
-        credits: courseCredits,
-        teachersName: teacherName.trim(),
-        creationDate: saveDate,
-        students: []
-    };
+    
+    const index = (element) => element.courseName == courseName;
+    const checkArray = json.courses.some(index);
 
-    json.courses.push(course);
-    file = fs.writeFileSync('./src/db/courses.json', JSON.stringify(json,null,2));
+    if(!checkArray){
+
+        const course = {
+            id: idToSave,
+            code: `2022-(C${idToSave})`,
+            courseName: courseName.trim(),
+            typeOfCourse: courseType.trim(),
+            credits: courseCredits,
+            teachersName: teacherName.trim(),
+            creationDate: saveDate,
+            students: []
+        };
+    
+        json.courses.push(course);
+        file = fs.writeFileSync('./src/db/courses.json', JSON.stringify(json,null,2));
+
+    }
+
 })
 
 

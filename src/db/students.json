@@ -9,7 +9,32 @@
       "email": "santiagobazul@hotmail.com",
       "phoneNumber": "3203773769",
       "registrationDate": "8/8/2022 23:49:29",
-      "courses": []
+      "courses": [
+        {
+          "courseId": 1
+        },
+        {
+          "courseId": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "code": "2022-2",
+      "name": "Juan",
+      "lastName": "Perez",
+      "age": 18,
+      "email": "juan@gmail.com",
+      "phoneNumber": "3203773769",
+      "registrationDate": "9/8/2022 00:20:23",
+      "courses": [
+        {
+          "courseId": 1
+        },
+        {
+          "courseId": 2
+        }
+      ]
     }
   ]
 }

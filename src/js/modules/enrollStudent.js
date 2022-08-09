@@ -114,6 +114,7 @@ export const enrollStudent = (course) => {
     buttonAddStudent.addEventListener("click", (e) => {
         e.preventDefault();
 
+        var formAddStudent = document.querySelector("#formAddStudent")
         let idStudent = document.querySelector("#selectStudents").value;
         let grade1 = document.querySelector("#grade1").value;
         let grade2 = document.querySelector("#grade2").value;
@@ -138,7 +139,8 @@ export const enrollStudent = (course) => {
                                              grade1: grade1, grade2: grade2, grade3: grade3})
                     }).then(
                         popUpAlert("El estudiante fue agregado", "El estudiante fue agregado al curso", "success"),
-                        getCourseInfo(course.code)
+                        getCourseInfo(course.code),
+                        enrollPopUp.remove()
                     );
         
                     setTimeout(() => {
@@ -164,7 +166,8 @@ export const enrollStudent = (course) => {
                                     grade1: grade1, grade2: grade2, grade3: grade3, grade4:grade4})
                             }).then(
                                 popUpAlert("El estudiante fue agregado", "El estudiante fue agregado al curso", "success"),
-                                getCourseInfo(course.code)
+                                getCourseInfo(course.code),
+                                enrollPopUp.remove(),
                             );
                 
                             setTimeout(() => {

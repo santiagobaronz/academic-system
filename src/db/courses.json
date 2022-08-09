@@ -8,7 +8,49 @@
       "credits": "5",
       "teachersName": "Santiago",
       "creationDate": "8/8/2022 23:55:03",
-      "students": []
+      "students": [
+        {
+          "studentId": "1",
+          "grade1": 50,
+          "grade2": 50,
+          "grade3": 50,
+          "finalNote": 50
+        },
+        {
+          "studentId": "2",
+          "grade1": 20,
+          "grade2": 20,
+          "grade3": 20,
+          "finalNote": 20
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "code": "2022-(C2)",
+      "courseName": "Prueba2",
+      "typeOfCourse": "Teorico-Practico",
+      "credits": "3",
+      "teachersName": "Santiago",
+      "creationDate": "9/8/2022 00:23:45",
+      "students": [
+        {
+          "studentId": "1",
+          "grade1": 50,
+          "grade2": 50,
+          "grade3": 50,
+          "grade4": 50,
+          "finalNote": 50
+        },
+        {
+          "studentId": "2",
+          "grade1": 20,
+          "grade2": 20,
+          "grade3": 20,
+          "grade4": 20,
+          "finalNote": 20
+        }
+      ]
     }
   ]
 }

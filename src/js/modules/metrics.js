@@ -1,11 +1,21 @@
 export const mainMetrics = async () => {
 
-    let studentsArray = [];
+    let studentsArray = [], coursesArray = [];
     let topStudents = [];
+
+    const infoCourses = document.querySelector(".infoCourses")
+
+    if(infoCourses != undefined){
+        infoCourses.remove();
+    }
 
     await fetch("./api/students")
     .then(response => response.json())
     .then(data => studentsArray = data.students)
+
+    await fetch("./api/courses")
+    .then(response => response.json())
+    .then(data => coursesArray = data.courses)
 
     studentsArray.forEach(student => {
 
@@ -19,9 +29,9 @@ export const mainMetrics = async () => {
 
         finalAverage = finalAverage/totalCredits;
         finalAverage = finalAverage.toFixed(2);
-
-        topStudents.push({name: student.name, lastName: student.lastName, finalAverage: finalAverage})
-
+        if(finalAverage != "NaN"){
+            topStudents.push({name: student.name, lastName: student.lastName, finalAverage: finalAverage})
+        }
     })
 
     topStudents.sort((a,b) => a.finalAverage - b.finalAverage).reverse()
@@ -33,15 +43,14 @@ export const mainMetrics = async () => {
     <div id='topStudents' class='courseInfoCard'>
         <h3>Estudiantes ordenados por nota</h3>
     </div>
-    <div id='something' class='courseInfoCard'>
-        <h3>xd</h3>
+    <div id='systemInfo' class='systemInfo'>
+        <h3>Información del sistema</h3>
     </div>
     `
     const divToAppend = document.querySelector(".main-metrics")
     divToAppend.append(noteFilter);
 
     let topStudentFilter = 0;
-
     topStudents.length > 10 ? topStudentFilter = 10 : topStudentFilter = topStudents.length
 
     for (let i = 0; i < topStudentFilter; i++) {
@@ -61,5 +70,27 @@ export const mainMetrics = async () => {
         const topStudentsDiv = document.querySelector("#topStudents")
         topStudentsDiv.append(gridElement);
     }
+
+    const elementToDelete = document.querySelector(".systemInfoGrid")
+
+    if(elementToDelete != undefined){
+        elementToDelete.remove();
+    }
+
+    const gridInfoSection = document.createElement("div")
+    gridInfoSection.className = "systemInfoGrid";
+    gridInfoSection.innerHTML = `
+    
+    <div class='infoSystemCard'>
+        <span class='span-infoSystem'>${studentsArray.length} </span>
+        <h3>estudiantes en total</h3>
+    </div>
+    <div class='infoSystemCard'>
+        <span class='span-infoSystem'>${coursesArray.length}</span>
+        <h3>cursos en total</h3>
+    </div>
+    `
+    const systemInfo = document.querySelector("#systemInfo");
+    systemInfo.append(gridInfoSection);
 
 }

@@ -15,10 +15,14 @@ export const studentFilter = () => {
         const filterInput = document.querySelector("#filterStudentInput").value;
         const selectorInput = document.querySelector("#selectorStudentInput").value;
 
-        (filterInput == "" || selectorInput == "nothing") ? getAllUsers() : getAllUsers(filterInput, selectorInput);
-        if(filterInput == "" && selectorInput == "no-enrolled"){
+        if(filterInput == "" && selectorInput == "nothing"){ 
+            getAllUsers()
+        }else if(filterInput == "" && selectorInput == "noEnrolled"){
             getAllUsers("noEnrolled", "check")
-        }
+        }else{
+            getAllUsers(filterInput, selectorInput)
+        };
+
 
     })
 

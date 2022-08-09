@@ -2,6 +2,7 @@
 import { getAllCourses } from "./getAllCourses.js";
 import { getAllUsers } from "./getAllUsers.js";
 import { getLastStudents } from "./getLastStudents.js";
+import { mainMetrics } from "./metrics.js";
 
 export const pageSelector = () => {
 
@@ -120,6 +121,12 @@ export const pageSelector = () => {
         getAllCourses();
     })
 
-    
+    metricsButton.addEventListener("click", () =>{
+        const infoCourses = document.querySelector(".infoCourses")
+        if(infoCourses != undefined){
+            infoCourses.remove();
+        }
+        mainMetrics();
+    })
 
 }

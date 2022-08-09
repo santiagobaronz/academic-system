@@ -43,9 +43,6 @@ export const getAllUsers = async (data, type) => {
 
     })
 
-    console.log(studentsArray);
-    
-
     /* Creating a div element and then it is selecting the element with the id studentsResult. */
     const studentsResult = document.querySelector("#studentsResult");
     const tableDiv = document.createElement("div");

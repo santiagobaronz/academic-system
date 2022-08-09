@@ -315,9 +315,15 @@ body::-webkit-scrollbar-thumb{
     font-size: 30px;
 }
 
+.dashboard-metrics-title{
+    margin-top: 100px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
 .dashboard-students-and-metrics{
     width: 100%;
-    margin-top: 60px;
+    margin-top: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 30px;
@@ -1064,6 +1070,51 @@ input[type=number] { -moz-appearance:textfield; }
 .gridCourseResult > div{
     line-height: 90px;
 }
+
+.systemInfo > h3{
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.systemInfo{
+    background-color: #fff;
+    padding: 40px;
+    height: 330px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 21px -5px #0000003d;
+}
+
+.systemInfoGrid, .systemInfoGrid2{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+    column-gap: 30px;
+}
+
+.infoSystemCard{
+    background-color: #bfe9ff;
+    border-radius: 15px;
+    color: #1c6b96;;
+    padding: 40px;
+}
+
+.infoSystemCard > h3{
+    font-weight: 500;
+    font-size: 25px;
+    text-align: center;
+}
+
+.span-infoSystem{
+    font-weight: 500;
+    font-size: 35px;
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+
 
 /* Menu de widgets */
 

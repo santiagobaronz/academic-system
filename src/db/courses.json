@@ -61,6 +61,20 @@
       "creationDate": "9/8/2022 14:57:49",
       "students": [
         {
+          "studentId": 6,
+          "grade1": 45,
+          "grade2": 34,
+          "grade3": 12,
+          "finalNote": 31
+        },
+        {
+          "studentId": 7,
+          "grade1": 20,
+          "grade2": 20,
+          "grade3": 29,
+          "finalNote": 23
+        },
+        {
           "studentId": 8,
           "grade1": 50,
           "grade2": 50,

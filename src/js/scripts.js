@@ -43,8 +43,6 @@ window.addEventListener("load", async () => {
     // Date module
     getDate();
 
-    window.addEventListener("click", () => {
-        console.clear()
-    })
+
     
 })

@@ -1,4 +1,6 @@
-const updateGrades = (studentId, courseId, typeOfCourse, courseCode) => {
+import { getCourseInfo } from "./getInfoCourse.js";
+
+export const updateGrades = (studentId, courseId, typeOfCourse, courseCode) => {
 
     const errorAlert = (type, message) => {
         Swal.fire(
@@ -11,7 +13,7 @@ const updateGrades = (studentId, courseId, typeOfCourse, courseCode) => {
     const successAlert = () => {
         Swal.fire(
             'Notas actualizadas',
-            'Recargue la pagina para ver la nota actualizada',
+            'Las notas del estudiante fueron actualizadas',
             'success'
           );
     }
@@ -54,13 +56,11 @@ const updateGrades = (studentId, courseId, typeOfCourse, courseCode) => {
                                             finalNote: finalNote})
                 }).then(
                     successAlert(),
+                    getCourseInfo(courseCode),
                     setTimeout(() => {
                         console.clear()
                     }, 500)
                 );
-
-                
-
             }
         }else{
             if(grades[0] == "" || grades[1] == "" || grades[2] == "" || grades[3] == ""){
@@ -84,10 +84,10 @@ const updateGrades = (studentId, courseId, typeOfCourse, courseCode) => {
                                             finalNote: finalNote})
                 }).then(
                     successAlert(),
+                    getCourseInfo(courseCode),
                     setTimeout(() => {
                         console.clear()
                     }, 500)
-                    
                 );
             }
         }

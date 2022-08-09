@@ -1,5 +1,7 @@
+import { deleteStudents } from "./deleteStudents.js";
 import { editCourse } from "./editCourse.js";
 import { enrollStudent } from "./enrollStudent.js";
+import { updateGrades } from "./updateGrades.js";
 
 export const getCourseInfo = async (code) => {
     
@@ -41,7 +43,10 @@ export const getCourseInfo = async (code) => {
     
     <div class='courseInfoTitle'>
         <h3>${courseInfo.courseName}</h3>
-        <span class="material-icons edit-course" id='editCourseButton'>edit</span>
+        <div class='courseOptions'>
+            <span class="material-icons edit-course" id='editCourseButton'>edit</span>
+            <span class="material-icons delete-course" id='deleteCourseButton'>delete</span>
+        </div>
     </div>
     <div class='courseInfoDetails'>
         <div class='course_Code'>
@@ -159,8 +164,8 @@ export const getCourseInfo = async (code) => {
             <td><input type='number' value='${studentGrades.grade3}' placeholder='${studentGrades.grade3}' class='inputGrades input${student.id}' min="0" max="50"></td>
             <td><input type='${inputType}' value='${grade4}' ${styleOfInput} placeholder='${grade4}' class='inputGrades input${student.id}' min="0" max="50"></td>
             <th><p class='inputFinalNote'>${studentGrades.finalNote}</p></th>
-            <th><button id='${student.id}' class='saveGradesButton' onclick='updateGrades(${student.id},"${courseInfo.id}", "${courseInfo.typeOfCourse}", "${courseInfo.code}")'>Guardar</button></th>
-            <td><button id='${student.id}' class='deleteUserButton' onclick='deleteStudents("${student.id}",${courseInfo.id})'>Eliminar</button></td>
+            <th><button id='${student.id},${courseInfo.id},${courseInfo.typeOfCourse},${courseInfo.code}' class='saveGradesButton'>Guardar</button></th>
+            <td><button id='${student.id},${courseInfo.id},${courseInfo.code}' class='deleteUserButton'>Eliminar</button></td>
             `;
     
             userTable.appendChild(rowElement);
@@ -168,7 +173,23 @@ export const getCourseInfo = async (code) => {
 
         });
 
+        const editGradesButtons = document.querySelectorAll(".saveGradesButton")
+        editGradesButtons.forEach(element => {
+            element.addEventListener("click", () => {
+                const parametersArray = element.id;
+                const parametersToSend = parametersArray.split(",")
+                updateGrades(parametersToSend[0], parametersToSend[1], parametersToSend[2],parametersToSend[3])
+            })
+        })
 
+        const deleteStudentsButtons = document.querySelectorAll(".deleteUserButton")
+        deleteStudentsButtons.forEach(element => {
+            element.addEventListener("click", () => {
+                const parametersArray = element.id;
+                const parametersToSend = parametersArray.split(",")
+                deleteStudents(parametersToSend[0], parametersToSend[1],parametersToSend[2])
+            })
+        })
     }else{
         courseStudentsBox.innerHTML = `
             <div class='noStudents'>
@@ -191,6 +212,24 @@ export const getCourseInfo = async (code) => {
     const editCourseButton = document.querySelector("#editCourseButton")
     editCourseButton.addEventListener("click", () => {
         editCourse(courseInfo)
+    })
+
+    const deleteCourseButton = document.querySelector("#deleteCourseButton")
+    deleteCourseButton.addEventListener("click", () => {
+        Swal.fire({
+            title: '¿Esta seguro de eliminar este curso?',
+            text: "Al eliminar el curso los estudiantes matriculados se eliminaran también",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Eliminar',
+            denyButtonText: `No eliminar`,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              alert("Eliminado")
+            } else if (result.isDenied) {
+              alert("No eliminado")
+            }
+          })
     })
 
 }

@@ -247,7 +247,73 @@ app.get('/api/courses/theoretical-practical/all', (req, res) => {
 
 });
 
-// Cursoooooooooooooooooooooooooooooooooooos
+app.post('/edit/student', (req,res) => {
+    res.setHeader('Content-type', 'application/json');
+
+    let fileStudents = fs.readFileSync('./src/db/students.json', 'utf-8');
+    const jsonStudents = JSON.parse(fileStudents);
+
+    const studentId = req.body.studentId;
+    const studentName = req.body.studentName;
+    const studentLastName = req.body.studentLastName;
+    const studentEmail = req.body.studentEmail;
+    const studentPhone = req.body.studentPhone;
+  
+
+    const index = (element) => element.id == studentId;
+    const indexArray = jsonStudents.students.findIndex(index);
+    
+    jsonStudents.students[indexArray].name = studentName;
+    jsonStudents.students[indexArray].lastName = studentLastName;
+    jsonStudents.students[indexArray].email = studentEmail;
+    jsonStudents.students[indexArray].phoneNumber = studentPhone;
+    fileStudents = fs.writeFileSync('./src/db/students.json', JSON.stringify(jsonStudents,null,2));
+
+})
+
+app.post('/delete/student', (req,res) => {
+    res.setHeader('Content-type', 'application/json');
+
+    const studentId = parseInt(req.body.studentId);
+
+    // Eliminar estudiante de la DB
+    // Eliminar notas del estudiante en los cursos en los que este
+
+    let fileCourses = fs.readFileSync('./src/db/courses.json', 'utf-8');
+    const jsonCourses = JSON.parse(fileCourses);
+
+    let fileStudents = fs.readFileSync('./src/db/students.json', 'utf-8');
+    const jsonStudents = JSON.parse(fileStudents);
+
+
+ 
+    const index = (element) => element.id == studentId;
+    const indexArray = jsonStudents.students.findIndex(index);
+
+    if(indexArray != -1){
+        const courseToDelete = jsonStudents.students[indexArray].courses;
+
+        console.log(courseToDelete);
+
+        courseToDelete.forEach(course => {
+            const courseId = course.courseId
+
+            const index = (element) => element.id == courseId;
+            const indexCArray = jsonCourses.courses.findIndex(index);
+            const studentsArray = jsonCourses.courses[indexCArray].students;
+            const newStudentsArray = studentsArray.filter((item) => item.studentId !== String(studentId));
+            jsonCourses.courses[indexCArray].students = newStudentsArray;
+            fileCourses = fs.writeFileSync('./src/db/courses.json', JSON.stringify(jsonCourses,null,2));
+        });
+    }
+
+    const newCoursesArray = jsonStudents.students.filter((item) => item.id !== studentId);
+    jsonStudents.students = newCoursesArray;
+    fileStudents = fs.writeFileSync('./src/db/students.json', JSON.stringify(jsonStudents,null,2));
+
+})
+
+// Cursoooooooooooooooooooooooooooooooooooos 
 
 
 
@@ -374,9 +440,6 @@ app.post('/edit/update-grades', (req,res) => {
     let fileCourses = fs.readFileSync('./src/db/courses.json', 'utf-8');
     const jsonCourses = JSON.parse(fileCourses);
 
-    let fileStudents = fs.readFileSync('./src/db/students.json', 'utf-8');
-    const jsonStudents = JSON.parse(fileStudents);
-
     const courseId = req.body.courseId;
     const studentId = req.body.studentId;
     const grade1 = req.body.grade1;
@@ -406,7 +469,6 @@ app.post('/edit/update-grades', (req,res) => {
         }
     }
 
-
     const index = (element) => element.id == courseId;
     const index2 = (element) => element.studentId == studentId;
     const indexArray1 = jsonCourses.courses.findIndex(index);
@@ -425,8 +487,11 @@ app.post('/delete/courseStudent', (req,res) => {
     let fileStudents = fs.readFileSync('./src/db/students.json', 'utf-8');
     const jsonStudents = JSON.parse(fileStudents);
 
-    const courseId = req.body.courseId;
+    const courseId = parseInt(req.body.courseId);
     const studentId = req.body.studentId;
+
+    console.log(courseId, studentId);
+
   
     const index = (element) => element.id == studentId;
     const indexArray1 = jsonStudents.students.findIndex(index);
@@ -436,7 +501,6 @@ app.post('/delete/courseStudent', (req,res) => {
 
     const index3 = (element) => element.id == courseId;
     const indexArray2 = jsonCourses.courses.findIndex(index3);
-    
     const newStudentsArray = jsonCourses.courses[indexArray2].students.filter((item) => item.studentId !== studentId);
     jsonCourses.courses[indexArray2].students = newStudentsArray;
     fileCourses = fs.writeFileSync('./src/db/courses.json', JSON.stringify(jsonCourses,null,2));
@@ -462,6 +526,42 @@ app.post('/edit/course', (req,res) => {
     jsonCourses.courses[indexArray].credits = newCredits;
     jsonCourses.courses[indexArray].teachersName = newTeacher;
     fileCourses = fs.writeFileSync('./src/db/courses.json', JSON.stringify(jsonCourses,null,2));
+
+})
+
+app.post('/delete/course', (req,res) => {
+    res.setHeader('Content-type', 'application/json');
+
+    const studentId = parseInt(req.body.studentId);
+
+    // Eliminar estudiante de la DB
+    // Eliminar notas del estudiante en los cursos en los que este
+
+    let fileCourses = fs.readFileSync('./src/db/courses.json', 'utf-8');
+    const jsonCourses = JSON.parse(fileCourses);
+
+    let fileStudents = fs.readFileSync('./src/db/students.json', 'utf-8');
+    const jsonStudents = JSON.parse(fileStudents);
+
+    const index = (element) => element.id == studentId;
+    const indexArray = jsonStudents.students.findIndex(index);
+    
+    const courseToDelete = jsonStudents.students[indexArray].courses
+    courseToDelete.forEach(course => {
+        const courseId = course.courseId
+
+        const index = (element) => element.id == courseId;
+        const indexCArray = jsonCourses.courses.findIndex(index);
+        const studentsArray = jsonCourses.courses[indexCArray].students;
+        const newStudentsArray = studentsArray.filter((item) => item.studentId !== String(studentId));
+        jsonCourses.courses[indexCArray].students = newStudentsArray;
+        fileCourses = fs.writeFileSync('./src/db/courses.json', JSON.stringify(jsonCourses,null,2));
+
+        const newCoursesArray = jsonStudents.students.filter((item) => item.id !== studentId);
+        jsonStudents.students = newCoursesArray;
+        fileStudents = fs.writeFileSync('./src/db/students.json', JSON.stringify(jsonStudents,null,2));
+
+    });
 
 })
 

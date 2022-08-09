@@ -1,38 +1,32 @@
 {
   "students": [
     {
-      "id": 1,
-      "code": "2022-1",
+      "id": 3,
+      "code": "2022-3",
       "name": "Santiago",
       "lastName": "Baron Zuleta",
-      "age": 22,
+      "age": 18,
       "email": "santiagobazul@hotmail.com",
       "phoneNumber": "3203773769",
-      "registrationDate": "8/8/2022 23:49:29",
+      "registrationDate": "9/8/2022 10:24:15",
       "courses": [
         {
           "courseId": 1
-        },
-        {
-          "courseId": 2
         }
       ]
     },
     {
-      "id": 2,
-      "code": "2022-2",
-      "name": "Juan",
-      "lastName": "Perez",
-      "age": 18,
-      "email": "juan@gmail.com",
+      "id": 4,
+      "code": "2022-4",
+      "name": "Andrea",
+      "lastName": "Baron Zuleta",
+      "age": 99,
+      "email": "andreds@gmail.com",
       "phoneNumber": "3203773769",
-      "registrationDate": "9/8/2022 00:20:23",
+      "registrationDate": "9/8/2022 10:24:24",
       "courses": [
         {
           "courseId": 1
-        },
-        {
-          "courseId": 2
         }
       ]
     }

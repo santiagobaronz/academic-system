@@ -1,4 +1,14 @@
+import { editStudent } from "./editStudent.js";
+
 export const getAllUsers = async (data, type) => {
+
+    const popUpAlert = (type, message, image) => {
+        Swal.fire(
+            `${type}`,
+            `${message}`,
+            `${image}`
+          );
+    }
 
     /* Selecting the element with the class name userTable. */
     const userTable = document.querySelector(".userTable");
@@ -46,6 +56,7 @@ export const getAllUsers = async (data, type) => {
                 <th>Correo electrónico:</th>
                 <th>Cursos inscritos</th>
                 <th>Editar</th>
+                <th>Eliminar</th>
             </tr>
         </table>
         `;
@@ -68,12 +79,37 @@ export const getAllUsers = async (data, type) => {
             <td>${student.code}</td>
             <td>${student.email}</td>
             <td>${numOfCourses}</td>
-            <td><button id='${student.id}' class='editUserButton'>Editar</button></td>
+            <td><button id='${student.code}' class='editUserButton' >Editar</button></td>
+            <td><button id='${student.id}' class='deleteUserButton' >Eliminar</button></td>
             `;
     
             userTable.appendChild(rowElement);
-    
+
         });
+
+        const userEditButtons = document.querySelectorAll(".editUserButton")
+        userEditButtons.forEach(element => {
+            element.addEventListener("click", () => {
+                editStudent(element.id)
+            })
+        })
+
+        const deleteUserButton = document.querySelectorAll(".deleteUserButton")
+        deleteUserButton.forEach(element => {
+            element.addEventListener("click", () => {
+                fetch("/delete/student", {
+                    method: 'POST',
+                    headers: {'Content-type': 'application/json'},
+                    body: JSON.stringify({studentId: element.id})
+                }).then(
+                    popUpAlert("El estudiante fue eliminado", "El estudiante fue eliminado de los cursos y el sistema", "success"),
+                    getAllUsers(),
+                    setTimeout(() => {
+                        console.clear()
+                    }, 500)
+                );
+            })
+        })
 
     }else{
         tableDiv.innerHTML = "<p class='noResultsAlert'>No se ha registrado ningún estudiante...</p>";

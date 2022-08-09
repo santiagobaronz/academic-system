@@ -1,4 +1,6 @@
-const deleteStudents = (studentId, courseId) => {
+import { getCourseInfo } from "./getInfoCourse.js"
+
+export const deleteStudents = (studentId, courseId, courseCode) => {
 
     fetch("/delete/courseStudent", {
         method: 'POST',
@@ -8,9 +10,10 @@ const deleteStudents = (studentId, courseId) => {
     }).then(
         Swal.fire(
             'Estudiante eliminado',
-            'Recargue la pagina para refrescar la lista',
+            'El estudiante fue eliminado del curso',
             'success'
           ),
+        getCourseInfo(courseCode),
         setTimeout(() => {
             console.clear()
         }, 500)

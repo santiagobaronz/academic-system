@@ -94,7 +94,13 @@
       "email": "franciamarquez62@gmail.com",
       "phoneNumber": "3333333333",
       "registrationDate": "9/8/2022 14:54:00",
-      "courses": []
+      "courses": [
+        {
+          "courseId": 2,
+          "finalNote": 31,
+          "credits": 3
+        }
+      ]
     },
     {
       "id": 7,
@@ -105,7 +111,13 @@
       "email": "tatianaospina@gmail.com",
       "phoneNumber": "5555555555",
       "registrationDate": "9/8/2022 14:54:21",
-      "courses": []
+      "courses": [
+        {
+          "courseId": 2,
+          "finalNote": 23,
+          "credits": 3
+        }
+      ]
     },
     {
       "id": 8,
@@ -116,7 +128,13 @@
       "email": "rogerhurtado@gmail.com",
       "phoneNumber": "5555555555",
       "registrationDate": "9/8/2022 14:55:05",
-      "courses": []
+      "courses": [
+        {
+          "courseId": 2,
+          "finalNote": 49,
+          "credits": 3
+        }
+      ]
     },
     {
       "id": 9,
@@ -127,7 +145,13 @@
       "email": "sebastianyepes@gmail.com",
       "phoneNumber": "7474747474",
       "registrationDate": "9/8/2022 14:55:25",
-      "courses": []
+      "courses": [
+        {
+          "courseId": 2,
+          "finalNote": 29,
+          "credits": 3
+        }
+      ]
     },
     {
       "id": 10,
@@ -138,7 +162,13 @@
       "email": "camilaltozano@gmail.com",
       "phoneNumber": "1526374859",
       "registrationDate": "9/8/2022 14:55:52",
-      "courses": []
+      "courses": [
+        {
+          "courseId": 2,
+          "finalNote": 38,
+          "credits": 3
+        }
+      ]
     }
   ]
 }

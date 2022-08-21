@@ -1,6 +1,7 @@
 /* Validate Student form */
 export const validateStudent = () => {
 
+    /* Selecting the elements from the DOM. */
     const studentName = document.querySelector("#name");
     const studentLastName = document.querySelector("#lastName");
     const studentAge = document.querySelector("#age");
@@ -16,6 +17,11 @@ export const validateStudent = () => {
     const submitButton = document.querySelector("#createStudentButton");
  
 
+    /**
+     * If the value of the input fields are empty, the button will be disabled and the background color
+     * will be grey. If the value of the input fields are not empty, the button will be enabled and the
+     * background color will be blue.
+     */
     const activateButton = () => {
         if(studentName.value == "" || studentLastName.value == "" || studentAge.value == "" || studentEmail.value == "" || studentPhoneNumber.value == ""){
             submitButton.style.backgroundColor = "#ccc";
@@ -26,13 +32,19 @@ export const validateStudent = () => {
         }
     }
 
+    /**
+     * If the value of the item is empty or undefined, return false.
+     * @param item - The input element that is being checked.
+     * @returns the value of the item.value.
+     */
     const verifyInput = (item) => {
-
         if(item.value == "" || item.value == undefined){
            return false;
         }
     }
 
+    /* Checking if the input field is empty or not. If it is empty, it will display an error message.
+    If it is not empty, it will display a success message. */
     studentName.addEventListener("blur", () =>{
         const result = verifyInput(studentName);
         if(result == false){
@@ -48,6 +60,8 @@ export const validateStudent = () => {
         activateButton();
     })
 
+    /* Checking if the input field is empty or not. If it is empty, it will display an error message.
+        If it is not empty, it will display a success message. */
     studentLastName.addEventListener("blur", () =>{
         const result = verifyInput(studentLastName);
         if(result == false){
@@ -63,6 +77,8 @@ export const validateStudent = () => {
         activateButton();
     })
 
+    /* Checking if the input field is empty or not. If it is empty, it will display an error message.
+        If it is not empty, it will display a success message. */
     studentAge.addEventListener("blur", () =>{
         const result = verifyInput(studentAge);
         if(result == false){
@@ -78,6 +94,8 @@ export const validateStudent = () => {
         activateButton();
     })
 
+    /* Checking if the input field is empty or not. If it is empty, it will display an error message.
+        If it is not empty, it will display a success message. */
     studentEmail.addEventListener("blur", () =>{
         const result = verifyInput(studentEmail);
         if(result == false){
@@ -93,6 +111,8 @@ export const validateStudent = () => {
         activateButton();
     })
 
+    /* Checking if the input field is empty or not. If it is empty, it will display an error message.
+        If it is not empty, it will display a success message. */
     studentPhoneNumber.addEventListener("blur", () =>{
         const result = verifyInput(studentPhoneNumber);
         if(result == false){

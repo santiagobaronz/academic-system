@@ -1,17 +1,21 @@
 import { getAllCourses } from "./getAllCourses.js";
 
 export const saveCourse = () => {
+
+    /* Selecting the button with the id of createCoursesButton. */
     const createCourseButton = document.querySelector("#createCoursesButton");
 
     createCourseButton.addEventListener("click", (e) => {
 
         e.preventDefault();
 
+    /* Getting the values of the inputs. */
         const courseName = document.querySelector("#courseName").value;
         const TypeOfCourse = document.querySelector("#selectCourse").value;
         const courseCredits = document.querySelector("#credits").value;
         const teacherName = document.querySelector("#teacherName").value;
     
+        /* Sending the data to the server. */
         fetch("/new/course", {
             method: 'POST',
             headers: {'Content-type': 'application/json'},

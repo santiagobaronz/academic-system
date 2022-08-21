@@ -2,6 +2,12 @@ import { getCourseInfo } from "./getInfoCourse.js";
 
 export const updateGrades = (studentId, courseId, typeOfCourse, courseCode, credits) => {
 
+    /**
+     * If the user clicks the button, then the function will fire an alert with the type and message
+     * that was passed in.
+     * @param type - The type of error.
+     * @param message - The message you want to display in the alert.
+     */
     const errorAlert = (type, message) => {
         Swal.fire(
             `${type}`,
@@ -10,6 +16,9 @@ export const updateGrades = (studentId, courseId, typeOfCourse, courseCode, cred
           );
     }
 
+    /**
+     * It's a function that fires a SweetAlert2 alert when called.
+     */
     const successAlert = () => {
         Swal.fire(
             'Notas actualizadas',
@@ -18,20 +27,24 @@ export const updateGrades = (studentId, courseId, typeOfCourse, courseCode, cred
           );
     }
 
+/* It's getting all the inputs that have the class `input` and storing them in an array. */
     let grades = []
     let errorBoolean = 0;
     let gradesInput = document.querySelectorAll(`.input${studentId}`);
 
+    /* It's getting all the inputs that have the class `input` and storing them in an array. */
     gradesInput.forEach( grade => {
 
         if(grade.value < 0 || grade.value > 50){
             errorAlert("Fuera de rango", "Ingrese valores entre 0 y 50")
             errorBoolean++;
         }
-
         grades.push(grade.value)
     })
 
+    /* It's checking if the user has entered a value that is not between 0 and 50. If the user has
+    entered a value that is not between 0 and 50, then the function will fire an alert with the type
+    and message that was passed in. */
     if(errorBoolean == 0){
 
         if(typeOfCourse == "Teorico"){

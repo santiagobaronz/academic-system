@@ -1,6 +1,7 @@
 /* Validate Student form */
 export const validateCourse = () => {
 
+    /* Selecting the elements from the DOM. */
     const courseName = document.querySelector("#courseName");
     const typeOfCourse = document.querySelector("#selectCourse");
     const courseCredits = document.querySelector("#credits");
@@ -14,6 +15,10 @@ export const validateCourse = () => {
     const submitButton = document.querySelector("#createCoursesButton");
  
 
+    /**
+     * If the course name, type of course, course credits, and teacher name are all filled out, then
+     * the submit button will be enabled.
+     */
     const activateButton = () => {
         if(courseName.value == "" || typeOfCourse.value == "nothing" || courseCredits.value == "" || teacherName.value == ""){
             submitButton.style.backgroundColor = "#ccc";
@@ -24,13 +29,22 @@ export const validateCourse = () => {
         }
     }
 
+    /**
+     * If the value of the item is empty, undefined, or equal to the string 'nothing', then return
+     * false.
+     * @param item - The item that is being checked.
+     * @returns Nothing.
+     */
     const verifyInput = (item) => {
-
         if(item.value == "" || item.value == undefined || item.value == "nothing"){
            return false;
         }
     }
 
+    /* Adding an event listener to the courseName element. When the user clicks out of the courseName
+    element, the function will run. The function will check if the courseName element is empty,
+    undefined, or equal to the string 'nothing'. If it is, then the function will return false. If
+    it is not, then the function will return nothing. */
     courseName.addEventListener("blur", () =>{
         const result = verifyInput(courseName);
         if(result == false){
@@ -46,6 +60,11 @@ export const validateCourse = () => {
         activateButton();
     })
 
+    
+    /* Adding an event listener to the typeOfCourse element. When the user clicks out of the
+    typeOfCourse element, the function will run. The function will check if the typeOfCourse element
+    is empty, undefined, or equal to the string 'nothing'. If it is, then the function will return
+    false. If it is not, then the function will return nothing. */
     typeOfCourse.addEventListener("blur", () =>{
         const result = verifyInput(typeOfCourse);
         if(result == false){
@@ -61,6 +80,10 @@ export const validateCourse = () => {
         activateButton();
     })
 
+    /* Adding an event listener to the courseCredits element. When the user clicks out of the
+        courseCredits element, the function will run. The function will check if the courseCredits
+        element is empty, undefined, or equal to the string 'nothing'. If it is, then the function will
+        return false. If it is not, then the function will return nothing. */
     courseCredits.addEventListener("blur", () =>{
         const result = verifyInput(courseCredits);
         if(result == false){
@@ -76,6 +99,10 @@ export const validateCourse = () => {
         activateButton();
     })
 
+    /* Adding an event listener to the teacherName element. When the user clicks out of the teacherName
+    element, the function will run. The function will check if the teacherName element is empty,
+    undefined, or equal to the string 'nothing'. If it is, then the function will return false. If
+    it is not, then the function will return nothing. */
     teacherName.addEventListener("blur", () =>{
         const result = verifyInput(teacherName);
         if(result == false){
@@ -90,7 +117,5 @@ export const validateCourse = () => {
         teacherVerification.style.display = "block";
         activateButton();
     })
-
-
 
 }

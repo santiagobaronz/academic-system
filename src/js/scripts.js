@@ -13,10 +13,10 @@ import { uploadData } from './modules/uploadData.js';
 import { validateCourse } from './modules/validateCourse.js';
 import { validateStudent } from './modules/validateStudent.js';
 
-
-
+/* A function that is executed when the page is loaded. */
 window.addEventListener("load", async () => {
 
+    // Obtain main metrics
     mainMetrics();
     // Upload data
     uploadData();
@@ -43,6 +43,4 @@ window.addEventListener("load", async () => {
     // Date module
     getDate();
 
-
-    
 })

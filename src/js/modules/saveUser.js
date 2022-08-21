@@ -3,19 +3,23 @@
 import { getAllUsers } from "./getAllUsers.js";
 
 export const saveUser = () => {
+    
+    /* Selecting the button with the id of createStudentButton. */
     const createStudentButton = document.querySelector("#createStudentButton");
 
-
+    /* A function that is called when the user clicks on the button with the id of createStudentButton. */
     createStudentButton.addEventListener("click", (e) => {
 
         e.preventDefault();
 
+    /* Getting the value of the input fields. */
         const studentName = document.querySelector("#name").value;
         const studentLastName = document.querySelector("#lastName").value;
         const studentAge = document.querySelector("#age").value;
         const studentEmail = document.querySelector("#email").value;
         const studentPhoneNumber = document.querySelector("#phoneNumber").value;
 
+        /* Sending the data to the server. */
         fetch("/new/student", {
             method: 'POST',
             headers: {'Content-type': 'application/json'},

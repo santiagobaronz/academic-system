@@ -44,7 +44,6 @@ app.get('/', (req, res) => {
 })
 
 /* Students Root */
-
 app.get('/api/students', (req, res) => {
     const file = fs.readFileSync('./src/db/students.json', 'utf-8');
     res.setHeader('Content-type', 'text/json');
@@ -55,7 +54,6 @@ app.get('/api/students/check/:noEnrolled', (req, res) => {
     let file = fs.readFileSync('./src/db/students.json', 'utf-8');
     const json = JSON.parse(file);
 
-    
     let studentsArray = []
     const students = json.students;
 
@@ -66,10 +64,12 @@ app.get('/api/students/check/:noEnrolled', (req, res) => {
     }
 
     res.send(studentsArray);
-
 });
 
 
+/* Reading the students.json file and then it is comparing the name of the student with the name that
+is passed in the url. If the name is found, it returns the student object, if not, it returns a
+message. */
 app.get('/api/students/name/:name', (req, res) => {
     let file = fs.readFileSync('./src/db/students.json', 'utf-8');
     const json = JSON.parse(file);
@@ -91,6 +91,9 @@ app.get('/api/students/name/:name', (req, res) => {
 });
 
 
+/* Reading the students.json file and then it is comparing the code of the student with the code that
+is passed in the url. If the code is found, it returns the student object, if not, it returns a
+message. */
 app.get('/api/students/code/:code', (req, res) => {
     let file = fs.readFileSync('./src/db/students.json', 'utf-8');
     const json = JSON.parse(file);
@@ -110,6 +113,9 @@ app.get('/api/students/code/:code', (req, res) => {
 
 });
 
+/* Reading the students.json file and then it is comparing the email of the student with the email that
+is passed in the url. If the email is found, it returns the student object, if not, it returns a
+message. */
 app.get('/api/students/email/:email', (req, res) => {
     let file = fs.readFileSync('./src/db/students.json', 'utf-8');
     const json = JSON.parse(file);
@@ -129,6 +135,9 @@ app.get('/api/students/email/:email', (req, res) => {
 
 });
 
+/* Reading the students.json file and then it is comparing the phone of the student with the phone that
+is passed in the url. If the phone is found, it returns the student object, if not, it returns a
+message. */
 app.get('/api/students/phone/:phone', (req, res) => {
     let file = fs.readFileSync('./src/db/students.json', 'utf-8');
     const json = JSON.parse(file);
@@ -205,6 +214,9 @@ app.get('/api/courses', (req, res) => {
     res.send(file);
 });
 
+/* Reading the courses.json file and then it is comparing the name of the course with the name that
+is passed in the url. If the name is found, it returns the course object, if not, it returns a
+message. */
 app.get('/api/courses/name/:name', (req, res) => {
     let file = fs.readFileSync('./src/db/courses.json', 'utf-8');
     const json = JSON.parse(file);
@@ -225,6 +237,10 @@ app.get('/api/courses/name/:name', (req, res) => {
 
 });
 
+
+/* Reading the courses.json file and then it is comparing the code of the course with the code that
+is passed in the url. If the code is found, it returns the course object, if not, it returns a
+message. */
 app.get('/api/courses/code/:code', (req, res) => {
     let file = fs.readFileSync('./src/db/courses.json', 'utf-8');
     const json = JSON.parse(file);
@@ -245,6 +261,9 @@ app.get('/api/courses/code/:code', (req, res) => {
 
 });
 
+/* Reading the courses.json file and then it is comparing the type of the course with the type that
+is passed in the url. If the type is found, it returns the courses array, if not, it returns a
+message. */
 app.get('/api/courses/theoretical/all', (req, res) => {
     let file = fs.readFileSync('./src/db/courses.json', 'utf-8');
     const json = JSON.parse(file);
@@ -267,6 +286,9 @@ app.get('/api/courses/theoretical/all', (req, res) => {
 
 });
 
+/* Reading the courses.json file and then it is comparing the type of the course with the type that
+is passed in the url. If the type is found, it returns the courses array, if not, it returns a
+message. */
 app.get('/api/courses/theoretical-practical/all', (req, res) => {
     let file = fs.readFileSync('./src/db/courses.json', 'utf-8');
     const json = JSON.parse(file);
@@ -289,6 +311,8 @@ app.get('/api/courses/theoretical-practical/all', (req, res) => {
 
 });
 
+
+/* Edit a student */
 app.post('/edit/student', (req,res) => {
     res.setHeader('Content-type', 'application/json');
 
@@ -313,6 +337,7 @@ app.post('/edit/student', (req,res) => {
 
 })
 
+/* Delete a student */
 app.post('/delete/student', (req,res) => {
     res.setHeader('Content-type', 'application/json');
 
@@ -351,6 +376,7 @@ app.post('/delete/student', (req,res) => {
 
 })
 
+/* Edit a course */
 app.post('/edit/course/theoretical', (req,res) => {
     res.setHeader('Content-type', 'application/json');
 
@@ -402,6 +428,7 @@ app.post('/edit/course/theoretical', (req,res) => {
 
 })
 
+/* Edit a course */
 app.post('/edit/course/theoretical-practical', (req,res) => {
     res.setHeader('Content-type', 'application/json');
 
@@ -457,6 +484,7 @@ app.post('/edit/course/theoretical-practical', (req,res) => {
     }
 })
 
+/* Update grades */
 app.post('/edit/update-grades', (req,res) => {
     res.setHeader('Content-type', 'application/json');
 
@@ -520,6 +548,7 @@ app.post('/edit/update-grades', (req,res) => {
 
 })
 
+/* Delete a student of a course */
 app.post('/delete/courseStudent', (req,res) => {
     res.setHeader('Content-type', 'application/json');
 
@@ -546,6 +575,7 @@ app.post('/delete/courseStudent', (req,res) => {
 
 })
 
+/* Edit a course */
 app.post('/edit/course', (req,res) => {
     res.setHeader('Content-type', 'application/json');
 
@@ -584,6 +614,7 @@ app.post('/edit/course', (req,res) => {
 
 })
 
+/* Delete a course */
 app.post('/delete/course', (req,res) => {
     res.setHeader('Content-type', 'application/json');
 
@@ -622,7 +653,7 @@ app.post('/delete/course', (req,res) => {
 
 })
 
-
+/* Create a new course */
 app.post('/new/course', (req,res) => {
     res.setHeader('Content-type', 'application/json');
 

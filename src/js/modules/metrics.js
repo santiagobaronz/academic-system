@@ -1,3 +1,6 @@
+/**
+ * It fetches data from two endpoints, then it creates a new div and appends it to the DOM
+ */
 export const mainMetrics = async () => {
 
     let studentsArray = [], coursesArray = [];
